@@ -1,0 +1,53 @@
+/**
+ * @name Windows 10/11-ish titlebar
+ * @author AstragonQC
+ * @version 1.0.2
+ * @description A slight modification of the titlebar for Discord (Windows desktop client) to make it look more like Windows 10/11 native titlebar.
+ * @authorId 223894107016134656
+ * @website https://kiki79250coc.github.io/
+ * @source https://kiki79250coc.github.io/BetterDiscordAddons/Themes/Win10ishTitlebar
+ * @updateUrl https://kiki79250coc.github.io/BetterDiscordAddons/Themes/Win10ishTitlebar/Win10ishTitlebar.theme.css
+*/
+
+/*
+
+   // Windows 10/11-ish titlebar - Theme Stub Loader
+
+   // Copyright © 2025 AstragonQC
+   // Shared under exclusive use for BetterDiscord/Vencord clients
+
+*/
+
+
+@import url("https://kiki79250coc.github.io/BetterDiscordAddons/Themes/Win10ishTitlebar/ThemeLoader_v1.0.2/Core0.css");
+
+
+/* Settings - Defaults at the end */
+
+:root {
+    --titleFont: "Segoe UI";
+    --titleSize: 9pt;
+    --titleAfterDashText: "Discord";
+    --titleDashText: "-";
+
+    --titleBarColor: transparent;
+    --CaptionBarItemColor: #ffffff;
+    --LTCaptionBarItemColor: #000000;
+
+}
+
+/*  Default settings (in case you need it):
+
+    :root {
+        --titleFont: "Segoe UI";
+        --titleSize: 9pt;
+        --titleAfterDashText: "Discord";
+        --titleDashText: "-";
+
+        --titleBarColor: transparent;
+        --CaptionBarItemColor: #ffffff;
+        --LTCaptionBarItemColor: #000000;
+
+    }
+
+*/

@@ -1,6 +1,6 @@
 /*
 
-   // Windows 10/11-isn titlebar - Core0.css
+   // Windows 10/11-ish titlebar - Core0.css
 
    // Copyright © 2025 AstragonQC
    // Shared under exclusive use for BetterDiscord/Vencord clients
@@ -10,12 +10,24 @@
 /* Default Root */
 
 :root {
-    --ThemeRealVersion: "1.0.158";
+    --ThemeRealVersion: "1.0.187";
 
     --custom-app-top-bar-height: calc(18px + var(--space-sm));
     --titleFontWithFallback: var(--titleFont), "gg sans", sans-serif;
 }
+/*
+    User Theme Stub Loader Options:
+    A new option will require a newer version of the Stub Loader to be customized.
 
+    --titleFont
+    --titleSize
+    --titleAfterDashText
+    --titleDashText
+
+    --titleBarColor
+    --CaptionBarItemColor
+    --LTCaptionBarItemColor
+*/
 
 /* ----------| Theme infos on card |---------- */
 
@@ -34,7 +46,7 @@
     /* ----- Light theme adjustments ----- */
 
     .theme-light {
-        --CaptionBarItemColor: var(--LTCaptionBarColor);
+        --CaptionBarItemColor: var(--LTCaptionBarItemColor);
     }
 
 
@@ -42,7 +54,8 @@
   /* Left part */
     /* ----- Icon ----- */
 
-    [class*="bar"][data-windows=true] [class*="title"] [class*="guildIcon"] {
+    [class*="bar"][data-windows=true] [class*="title"] [class*="guildIcon"],
+    [class*="bar"][data-windows=false] [class*="title"] [class*="guildIcon"] {
         background: var(--CaptionBarItemColor) !important;
 
         -webkit-mask-image: url('data:image/svg+xml,%3Csvg%20aria-hidden%3D%22true%22%20role%3D%22img%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22none%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M19.73%204.87a18.2%2018.2%200%200%200-4.6-1.44c-.21.4-.4.8-.58%201.21-1.69-.25-3.4-.25-5.1%200-.18-.41-.37-.82-.59-1.2-1.6.27-3.14.75-4.6%201.43A19.04%2019.04%200%200%200%20.96%2017.7a18.43%2018.43%200%200%200%205.63%202.87c.46-.62.86-1.28%201.2-1.98-.65-.25-1.29-.55-1.9-.92.17-.12.32-.24.47-.37%203.58%201.7%207.7%201.7%2011.28%200l.46.37c-.6.36-1.25.67-1.9.92.35.7.75%201.35%201.2%201.98%202.03-.63%203.94-1.6%205.64-2.87.47-4.87-.78-9.09-3.3-12.83ZM8.3%2015.12c-1.1%200-2-1.02-2-2.27%200-1.24.88-2.26%202-2.26s2.02%201.02%202%202.26c0%201.25-.89%202.27-2%202.27Zm7.4%200c-1.1%200-2-1.02-2-2.27%200-1.24.88-2.26%202-2.26s2.02%201.02%202%202.26c0%201.25-.88%202.27-2%202.27Z%22%20class%3D%22%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E');
@@ -54,18 +67,21 @@
         width: 16px !important;
         border-radius: 0px !important;
     }
-    [class*="bar"][data-windows=true] [class*="title"] svg path:first-child {
+    [class*="bar"][data-windows=true] [class*="title"] svg path:first-child,
+    [class*="bar"][data-windows=false] [class*="title"] svg path:first-child {
         d: path("M19.73 4.87a18.2 18.2 0 0 0-4.6-1.44c-.21.4-.4.8-.58 1.21-1.69-.25-3.4-.25-5.1 0-.18-.41-.37-.82-.59-1.2-1.6.27-3.14.75-4.6 1.43A19.04 19.04 0 0 0 .96 17.7a18.43 18.43 0 0 0 5.63 2.87c.46-.62.86-1.28 1.2-1.98-.65-.25-1.29-.55-1.9-.92.17-.12.32-.24.47-.37 3.58 1.7 7.7 1.7 11.28 0l.46.37c-.6.36-1.25.67-1.9.92.35.7.75 1.35 1.2 1.98 2.03-.63 3.94-1.6 5.64-2.87.47-4.87-.78-9.09-3.3-12.83ZM8.3 15.12c-1.1 0-2-1.02-2-2.27 0-1.24.88-2.26 2-2.26s2.02 1.02 2 2.26c0 1.25-.89 2.27-2 2.27Zm7.4 0c-1.1 0-2-1.02-2-2.27 0-1.24.88-2.26 2-2.26s2.02 1.02 2 2.26c0 1.25-.88 2.27-2 2.27Z") !important;
         fill: var(--CaptionBarItemColor);
     }
-    [class*="bar"][data-windows=true] [class*="title"] svg path:not(:first-child) {
+    [class*="bar"][data-windows=true] [class*="title"] svg path:not(:first-child),
+    [class*="bar"][data-windows=false] [class*="title"] svg path:not(:first-child) {
         display: none !important;
     }
 
 
     /* ----- Text ----- */
 
-    [class*="bar"][data-windows=true] [class*="title"] [class*="lineClamp1"] {
+    [class*="bar"][data-windows=true] [class*="title"] [class*="lineClamp1"],
+    [class*="bar"][data-windows=false] [class*="title"] [class*="lineClamp1"] {
         font-family: var(--titleFontWithFallback);
         font-size: var(--titleSize);
         font-weight: normal !important;
@@ -78,14 +94,16 @@
 
     /* ----- Measures ----- */
 
-    [class*="bar"][data-windows=true] {
+    [class*="bar"][data-windows=true],
+    [class*="bar"][data-windows=false] {
         background: var(--titleBarColor);
     }
     [class*="bar"][data-windows=true] [class*="title"] {
         justify-content: left;
         padding-left: 8px;
     }
-    [class*="bar"][data-windows=true] [class*="title"] [class*="title"] {
+    [class*="bar"][data-windows=true] [class*="title"] [class*="title"],
+    [class*="bar"][data-windows=false] [class*="title"] [class*="title"] {
         padding:0 !important;
         gap: 6px;
     }
