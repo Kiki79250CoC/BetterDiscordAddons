@@ -19,22 +19,22 @@ As this theme was primarily designed for Windows, it is likely only compatible w
 
 It does work with all themes officially included into Discord (both Non-Nitro and Nitro-exclusive).
 
-![LightThemePreview](./.Readme_rs/Theme01Preview.png)
+![LightThemePreview](./.ReadmeRS/Theme01Preview.png)
 <sup>*Preview with Light Theme*</sup>
-![AshThemePreview](./.Readme_rs/Theme02Preview.png)
+![AshThemePreview](./.ReadmeRS/Theme02Preview.png)
 <sup>*Preview with Ash Theme*</sup>
-![DarkThemePreview](./.Readme_rs/Theme03Preview.png)
+![DarkThemePreview](./.ReadmeRS/Theme03Preview.png)
 <sup>*Preview with Dark Theme*</sup>
-![OnyxThemePreview](./.Readme_rs/Theme04Preview.png)
+![OnyxThemePreview](./.ReadmeRS/Theme04Preview.png)
 <sup>*Preview with Onyx Theme*</sup>
-![MintAppleThemePreview](./.Readme_rs/Theme05Preview.png)
+![MintAppleThemePreview](./.ReadmeRS/Theme05Preview.png)
 <sup>*Preview with "Mint Apple" Theme*</sup>
-![ChromaGlowThemePreview](./.Readme_rs/Theme06Preview.png)
+![ChromaGlowThemePreview](./.ReadmeRS/Theme06Preview.png)
 <sup>*Preview with "Chroma Glow" Theme*</sup>
 
 As the theme is customizable, you can do everything you want!<br>For example:
 
-![GoophyThemePreview](./.Readme_rs/Theme07Preview.png)
+![GoophyThemePreview](./.ReadmeRS/Theme07Preview.png)
 <sup>*Preview of a goofy style with the following modifications to the base settings:*</sup>
 ```css
 :root {
@@ -53,7 +53,7 @@ As the theme is customizable, you can do everything you want!<br>For example:
 
 or…
 
-![GlossyThemePreview](./.Readme_rs/Theme08Preview.png)
+![GlossyThemePreview](./.ReadmeRS/Theme08Preview.png)
 <sup>*Preview of a glossy rainbow theme with the following modifications to the base settings:*</sup>
 ```css
 :root {
