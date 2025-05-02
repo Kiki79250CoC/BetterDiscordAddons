@@ -9,7 +9,6 @@ It uses the existing elements from the titlebar (like the server indicator at th
   - Font
   - Font size
   - Font boldness
-  - Title text alignment
   - Appended text ("- Discord")
   - Background color (gradients are supported)
   - Caption elements' color (Light and dark-toned themes have separate setting)
@@ -20,23 +19,23 @@ As this theme was primarily designed for Windows, it is likely only compatible w
 
 It does work with all themes officially included into Discord (both Non-Nitro and Nitro-exclusive).
 
-![LightThemePreview](./Win10ishTitlebar/.Readme_rs/Theme01Preview.png)
+![LightThemePreview](./.Readme_rs/Theme01Preview.png)
 <sup>*Preview with Light Theme*</sup>
-![AshThemePreview](./Win10ishTitlebar/.Readme_rs/Theme02Preview.png)
+![AshThemePreview](./.Readme_rs/Theme02Preview.png)
 <sup>*Preview with Ash Theme*</sup>
-![DarkThemePreview](./Win10ishTitlebar/.Readme_rs/Theme03Preview.png)
+![DarkThemePreview](./.Readme_rs/Theme03Preview.png)
 <sup>*Preview with Dark Theme*</sup>
-![OnyxThemePreview](./Win10ishTitlebar/.Readme_rs/Theme04Preview.png)
+![OnyxThemePreview](./.Readme_rs/Theme04Preview.png)
 <sup>*Preview with Onyx Theme*</sup>
-![MintAppleThemePreview](./Win10ishTitlebar/.Readme_rs/Theme05Preview.png)
+![MintAppleThemePreview](./.Readme_rs/Theme05Preview.png)
 <sup>*Preview with "Mint Apple" Theme*</sup>
-![ChromaGlowThemePreview](./Win10ishTitlebar/.Readme_rs/Theme06Preview.png)
+![ChromaGlowThemePreview](./.Readme_rs/Theme06Preview.png)
 <sup>*Preview with "Chroma Glow" Theme*</sup>
 
 As the theme is customizable, you can do everything you want!<br>For example:
 
-![GoophyThemePreview](./Win10ishTitlebar/.Readme_rs/Theme07Preview.png)
-<sup>*Preview of a goophic style with the following modifications to the base settings:*</sup>
+![GoophyThemePreview](./.Readme_rs/Theme07Preview.png)
+<sup>*Preview of a goofy style with the following modifications to the base settings:*</sup>
 ```css
 :root {
     --titleFont: "Comic Sans MS";
@@ -54,7 +53,7 @@ As the theme is customizable, you can do everything you want!<br>For example:
 
 or…
 
-![GlossyThemePreview](./Win10ishTitlebar/.Readme_rs/Theme08Preview.png)
+![GlossyThemePreview](./.Readme_rs/Theme08Preview.png)
 <sup>*Preview of a glossy rainbow theme with the following modifications to the base settings:*</sup>
 ```css
 :root {
