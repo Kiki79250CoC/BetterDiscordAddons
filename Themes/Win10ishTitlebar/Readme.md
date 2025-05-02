@@ -74,7 +74,7 @@ or…
 
 You can, just add the following to your CSS:
 ```css
-@import url("https://kiki79250coc.github.io/BetterDiscordAddons/Themes/Win10ishTitlebar/ThemeLoader_v1.0.2/Core0.css");
+@import url("https://kiki79250coc.github.io/BetterDiscordAddons/Themes/Win10ishTitlebar/Theme/ThemeLoader_v1.0.2/Core0.css");
 
 :root {
     --titleFont: "Segoe UI";
