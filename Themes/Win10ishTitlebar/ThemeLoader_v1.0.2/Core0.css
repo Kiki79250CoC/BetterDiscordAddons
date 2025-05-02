@@ -10,7 +10,7 @@
 /* Default Root */
 
 :root {
-    --ThemeRealVersion: "1.0.187";
+    --ThemeRealVersion: "1.0.190";
 
     --custom-app-top-bar-height: calc(18px + var(--space-sm));
     --titleFontWithFallback: var(--titleFont), "gg sans", sans-serif;
