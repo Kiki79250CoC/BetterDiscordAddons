@@ -27,6 +27,7 @@
 :root {
     --titleFont: "Segoe UI";
     --titleSize: 9pt;
+    --titleBoldness: normal;
     --titleAfterDashText: "Discord";
     --titleDashText: "-";
 

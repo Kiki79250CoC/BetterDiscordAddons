@@ -84,7 +84,7 @@
     [class*="bar"][data-windows=false] [class*="title"] [class*="lineClamp1"] {
         font-family: var(--titleFontWithFallback);
         font-size: var(--titleSize);
-        font-weight: normal !important;
+        font-weight: var(--fontBoldness) !important;
         color: var(--CaptionBarItemColor);
     }
     [class*="bar"][data-windows=true] [class*="title"] [class*="lineClamp1"]:after {
