@@ -10,7 +10,7 @@
 /* Default Root */
 
 :root {
-    --ThemeRealVersion: "1.0.195";
+    --ThemeRealVersion: "1.0.196";
 
     --custom-app-top-bar-height: calc(18px + var(--space-sm));
     --titleFontWithFallback: var(--titleFont), "gg sans", sans-serif;
@@ -181,6 +181,7 @@
 
     /* ----- Additional icons active state ----- */
 
+    [class*="bar"][data-windows=true] [class*="trailing"] [class*="button"][class*="iconWrapper"][class*="selected"],
     [class*="bar"][data-windows=true] [class*="trailing"] [class*="button"][class*="iconWrapper"]:active {
         background-color: var(--background-modifier-active);
     }
