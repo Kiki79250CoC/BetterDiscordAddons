@@ -32,6 +32,17 @@ It does work with all themes officially included into Discord (both Non-Nitro an
 ![ChromaGlowThemePreview](./Assets/Theme06Preview.png)
 <sup>*Preview with "Chroma Glow" Theme*</sup>
 
+Compatibility may be present with custom themes if the titlebar isn't customized or is slightly edited.
+
+![ChromaGlowThemePreview](./Assets/ThemeTP01Preview.png)
+<sup>*Preview with "[Novum](https://github.com/przemec/Novum)" Third-party Theme*</sup>
+![ThirdPartyNordicThemePreview](./Assets/ThemeTP02Preview.png)
+<sup>*Preview with "[Nordic](https://github.com/orblazer/discord-nordic)" Third-party Theme*</sup>
+![ThirdPartyNewRemThemePreview](./Assets/ThemeTP03Preview.png)
+<sup>*Preview with "[New Rem](https://github.com/ShadowDevilsAvenged/ShadowDevilsAvenged/blob/master/My_Theme_Collection/NewRemTheme.theme.css)" Third-party Theme*</sup>
+![ThirdPartyNewRemThemePreview](./Assets/ThemeTP04Preview.png)
+<sup>*Preview with "[ClearVision 7.0](https://github.com/ClearVision/ClearVision-v7)" Third-party Theme*</sup>
+
 As the theme is customizable, you can do everything you want!<br>For example:
 
 ![GoophyThemePreview](./Assets/Theme07Preview.png)

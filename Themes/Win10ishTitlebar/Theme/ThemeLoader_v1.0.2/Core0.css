@@ -10,7 +10,7 @@
 /* Default Root */
 
 :root {
-    --ThemeRealVersion: "1.0.196";
+    --ThemeRealVersion: "1.0.200";
 
     --custom-app-top-bar-height: calc(18px + var(--space-sm));
     --titleFontWithFallback: var(--titleFont), "gg sans", sans-serif;
@@ -32,10 +32,10 @@
 
 /* ----------| Theme infos on card |---------- */
 
-.bd-addon-list div[id="Windows 10/11-ish titlebar-card"] .bd-version::before {
+.bd-addon-list div[id="Windows 10/11-ish titlebar-card"]:has([class*="bd-switch"][class*="bd-switch-checked"]) .bd-version::before {
     content: "v" var(--ThemeRealVersion) " (Theme stub loader ";
 }
-.bd-addon-list div[id="Windows 10/11-ish titlebar-card"] .bd-version::after {
+.bd-addon-list div[id="Windows 10/11-ish titlebar-card"]:has([class*="bd-switch"][class*="bd-switch-checked"]) .bd-version::after {
     content: ") ";
 }
 
@@ -98,10 +98,12 @@
     [class*="bar"][data-windows=true],
     [class*="bar"][data-windows=false] {
         background: var(--titleBarColor);
+        z-index: 2147483647;
     }
-    [class*="bar"][data-windows=true] [class*="title"] {
+    [class*="bar"][data-windows=true] > [class*="title"] {
         justify-content: left;
         padding-left: 8px;
+        display: flex !important;
     }
     [class*="bar"][data-windows=true] [class*="title"] [class*="title"],
     [class*="bar"][data-windows=false] [class*="title"] [class*="title"] {
@@ -137,6 +139,9 @@
     [class*="bar"][data-windows=true] [class*="trailing"] [class*="winButtons"] [class*="winButton"][class*="winButtonClose"]:hover {
         background-color: #c42b1c;
 		}
+    [class*="bar"][data-windows=true] [class*="trailing"] [class*="winButtons"] [class*="winButton"][class*="winButtonClose"]:active {
+        background-color: #b22a1c;
+		}
 
     [class*="bar"][data-windows=true] [class*="trailing"] [class*="winButtons"] [class*="winButton"] svg rect,
     [class*="bar"][data-windows=true] [class*="trailing"] [class*="winButtons"] [class*="winButton"] svg polygon {
@@ -160,6 +165,7 @@
     [class*="bar"][data-windows=true] [class*="trailing"] [class*="button"][class*="iconWrapper"] svg {
         width: 16px;
         height: 16px;
+        scale: 1 !important;
     }
     [class*="bar"][data-windows=true] [class*="trailing"] [class*="button"][class*="iconWrapper"] svg path {
         fill: var(--CaptionBarItemColor);
