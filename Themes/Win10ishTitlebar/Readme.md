@@ -1,5 +1,7 @@
 # Windows 10/11-ish Titlebar
 
+<sup>*[Theme Changelog](./ReleaseChangelog.md)*</sup>
+
 A theme that replicates a Windows 10/11 lookalike titlebar. Can be used standalone or as part of a theme.
 It uses the existing elements from the titlebar (like the server indicator at the top) to replicated efficiently the Windows 10/11 titlebar design, without adding any unnecessary elements to it.
 

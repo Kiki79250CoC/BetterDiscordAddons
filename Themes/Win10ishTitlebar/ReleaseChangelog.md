@@ -1,6 +1,9 @@
 # Windows 10/11-ish Titlebar - Changelog
 <sup>*Times are expressed in CET/CEST (UTC+1/+2) time.*</sup>
 
+### 1.0.210 <sup>(11 June 2025)</sup>
+- Updated theme to reflect change on Discord's structure (sorry if it took time, only restarted my clients today for applying Windows updates).
+
 ### 1.0.205 <sup>(12 May 2025)</sup>
 - Optimized code to reduce CSS node footprint
 - Modified icon mask to use newer CSS implementations on newer versions of the client.
