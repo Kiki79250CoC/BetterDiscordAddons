@@ -1,5 +1,5 @@
 # Windows 10/11-ish Titlebar - Changelog
-<sup>*Times are expressed in CET/CEST (UTC+1/+2) time.*</sup></br><sup>*[< Back to README](./)*</sup>
+<sup>*Times are expressed in CET/CEST (UTC+1/+2) time.*</sup><br><sup>*[< Back to README](./)*</sup>
 
 ### 1.0.220 <sup>(16 October 2025)</sup>
 - Fixed the Inbox button's icon when there is a badge over it.
