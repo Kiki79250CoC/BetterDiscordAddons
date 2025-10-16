@@ -18,6 +18,7 @@ It uses the existing elements from the titlebar (like the server indicator at th
 ## Compatibility
 
 As this theme was primarily designed for Windows, it is likely only compatible with it.
+<sup>*Compatibility is ensured for clients version 1.0.9034/6 to current.*</sup>
 
 It does work with all themes officially included into Discord (both Non-Nitro and Nitro-exclusive).
 
