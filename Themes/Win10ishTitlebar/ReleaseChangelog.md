@@ -1,6 +1,9 @@
 # Windows 10/11-ish Titlebar - Changelog
 <sup>*Times are expressed in CET/CEST (UTC+1/+2) time.*</sup><br><sup>*[< Back to README](./)*</sup>
 
+### 1.1.260 <sup>(18 December 2025)</sup>
+- Updated theme to reflect change on Discord's internal class naming convention ("Class__xxx" → "xxx-class")
+
 ### 1.0.220 <sup>(16 October 2025)</sup>
 - Fixed the Inbox button's icon when there is a badge over it.
 - Removed old Inbox code that was marked as "old" in 1.0.215.
