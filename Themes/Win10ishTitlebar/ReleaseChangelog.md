@@ -1,8 +1,14 @@
 # Windows 10/11-ish Titlebar - Changelog
 <sup>*Times are expressed in CET/CEST (UTC+1/+2) time.*</sup><br><sup>*[< Back to README](./)*</sup>
 
+### 1.2.295 <sup>(22 December 2025)</sup>
+- Replaced the attribute selectors for "platform-win" and "appMount" with a proper class name in an attempt to diminish the CSS process time.
+- Improved logic to avoid conflict with overlapping elements from other themes like ClearVision v7.
+  - Original tests were done on the version *1.0.9034* of the Discord client that did not support CSS nesting, something used by a fair amount of themes nowadays.
+- Added French localization for theme stub loader version tooltip on the BD's Theme Settings page.
+
 ### 1.1.260 <sup>(18 December 2025)</sup>
-- Updated theme to reflect change on Discord's internal class naming convention ("Class__xxx" → "xxx-class")
+- Updated theme to reflect change on Discord's internal class naming convention ("Class__xxx" → "xxx-class").
 
 ### 1.0.220 <sup>(16 October 2025)</sup>
 - Fixed the Inbox button's icon when there is a badge over it.
