@@ -7,4 +7,4 @@ Welcome! This repository contains themes (and maybe one day) plugins for BetterD
 
 -----
 
-Copyright © 2025 AstragonQC<br><sup>All rights reserved.</sup>
+Copyright © 2025-2026 AstragonQC<br><sup>All rights reserved.</sup>

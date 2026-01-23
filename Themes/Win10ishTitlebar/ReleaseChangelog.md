@@ -48,4 +48,4 @@
 
 -----
 
-Copyright © 2025 AstragonQC<br><sup>All rights reserved.</sup>
+Copyright © 2025-2026 AstragonQC<br><sup>All rights reserved.</sup>
