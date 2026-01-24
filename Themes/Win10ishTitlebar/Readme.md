@@ -15,9 +15,13 @@ It uses the existing elements from the titlebar (like the server indicator at th
   - Background color (gradients are supported)
   - Caption elements' color (Light and dark-toned themes have separate setting)
 
-## Compatibility
+## Client compatibility
 
-As this theme was primarily designed for Windows, it is likely only compatible with it.<br><sup>*Compatibility is ensured for clients version 1.0.9034/6 to current.*</sup>
+This theme is supported by the following clients:
+- Discord Web Client
+- Discord Windows Client <sup><sub>*(Version 1.0.9034 and later)*</sub></sup>
+
+## Theme compatibility
 
 It does work with all themes officially included into Discord (both Non-Nitro and Nitro-exclusive).
 

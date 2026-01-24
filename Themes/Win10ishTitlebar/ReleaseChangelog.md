@@ -1,6 +1,11 @@
 # Windows 10/11-ish Titlebar - Changelog
 <sup>*Times are expressed in CET/CEST (UTC+1/+2) time.*</sup><br><sup>*[< Back to README](./)*</sup>
 
+### 1.2.315 <sup><sub>*(24 January 2026)*</sub></sup>
+- Updated theme to reflect the backpedalling of the class naming convention change because Discord devs are fucking incompetent dumpsters.
+- Added support for Discord Web Client.
+- Improved some internal localization-related stuff.
+
 ### 1.2.295 <sup><sub>*(22 December 2025)*</sub></sup>
 - Replaced the attribute selectors for "platform-win" and "appMount" with a proper class name in an attempt to diminish the CSS process time.
 - Improved logic to avoid conflict with overlapping elements from other themes like ClearVision v7.
