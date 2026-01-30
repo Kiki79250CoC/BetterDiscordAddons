@@ -10,7 +10,7 @@
 /* Default Root */
 
 :root {
-    --W10ITB-ThemeRealVersion: "1.2.315";
+    --W10ITB-ThemeRealVersion: "1.3.390";
 
     --custom-app-top-bar-height: calc(18px + var(--space-sm));
     --titleFontWithFallback: var(--titleFont), "gg sans", sans-serif;
@@ -34,9 +34,11 @@
 
 :root{
     --W10ITB-Loc-StubLoader: "Theme stub loader";
+    --W10ITB-Loc-OldClassEOL: "Support for older classes will cease on February 15. Please Update your client in accordance.";
 }
 [lang="fr"]:root {
     --W10ITB-Loc-StubLoader: "Chargeur de thème";
+    --W10ITB-Loc-OldClassEOL: "Le support des anciennes classes cessera le 15 février. Veuillez mettre votre client à jour.";
 }
 
 
@@ -62,13 +64,132 @@
     }
 
 
+    /* ----- General ----- */
+
+    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] /* old */,
+    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] {
+        background: var(--titleBarColor);
+    }
+
+
+    /* ----- Adjusting element order ----- */
+
+    :is(.platform-win, .platform-web) :is([class*="-base"]) > [class*="-bar"] /*old*/,
+    :is(.platform-win, .platform-web) :is([class*="base_"]) > [class*="bar_"] {
+        display: inline-grid;
+        grid-template-columns: auto 1fr auto;
+        justify-content: start;
+        gap: 0px;
+    }
+
+    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] > [class*="-leading"] /* old */,
+    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] > [class*="leading_"] {
+        order: 1;
+    }
+    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] > [class*="-leading"]:before /* old */,
+    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] > [class*="leading_"]:before {
+        margin-left: 0 !important;
+    }
+    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] > [class*="-leading"]:after /* old */,
+    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] > [class*="leading_"]:after {
+        margin-right: 0 !important;
+    }
+
+    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] > [class*="-title"] /* old */,
+    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] > [class*="title_"] {
+        order: 2;
+        position: relative;
+        justify-content: left;
+    }
+    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] > [class*="-title"] [class*="-title"] /* old */,
+    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] > [class*="title_"] [class*="title_"] {
+        padding: 0 0 0 8px !important;
+        gap: 6px;
+    }
+
+    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] > [class*="-trailing"] /* old */,
+    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] > [class*="trailing_"] {
+        order: 3;
+    }
+
+
+    /* ----- Disable drag on button regions (when the secoundary bar is NOT displayed) ----- */
+
+    :is(.platform-win, .platform-web) #app-mount:has(> [class*="-bar"][class*="-show"]) [class*="-base"] > [class*="-bar"] > :is([class*="-leading"], [class*="-title"]),
+    :is(.platform-win, .platform-web) #app-mount:has(> [class*="-bar"][class*="-show"]) [class*="-base"] > [class*="-bar"] > [class*="-title"] :is([class*="-guildIcon"], svg),
+    :is(.platform-win, .platform-web) #app-mount:has(> [class*="-bar"][class*="-show"]) [class*="-base"] > [class*="-bar"] > [class*="-trailing"] a *,
+    :is(.platform-win, .platform-web) #app-mount:has(> [class*="-bar"][class*="-show"]) [class*="-base"] > [class*="-bar"] > [class*="-trailing"] [class*="-clickable"],
+    :is(.platform-win, .platform-web) #app-mount:has(> [class*="-bar"][class*="-show"]) [class*="-base"] > [class*="-bar"] > [class*="-trailing"] [class*="-winButtonsWithDivider"]::before /* Old */,
+    :is(.platform-win, .platform-web) #app-mount:has(> [class*="bar_"][class*="show_"]) [class*="base_"] > [class*="bar_"] > :is([class*="leading_"], [class*="title_"]),
+    :is(.platform-win, .platform-web) #app-mount:has(> [class*="bar_"][class*="show_"]) [class*="base_"] > [class*="bar_"] > [class*="title_"] :is([class*="guildIcon_"], svg),
+    :is(.platform-win, .platform-web) #app-mount:has(> [class*="bar_"][class*="show_"]) [class*="base_"] > [class*="bar_"] > [class*="trailing_"] a *,
+    :is(.platform-win, .platform-web) #app-mount:has(> [class*="bar_"][class*="show_"]) [class*="base_"] > [class*="bar_"] > [class*="trailing_"] [class*="clickable_"],
+    :is(.platform-win, .platform-web) #app-mount:has(> [class*="bar_"][class*="show_"]) [class*="base_"] > [class*="bar_"] > [class*="trailing_"] [class*="winButtonsWithDivider_"]::before {
+        -webkit-app-region: drag !important;
+    }
+    :is(.platform-win, .platform-web) #app-mount > [class*="-bar"][class*="-show"] > [class*="-trailing"] /* Old */,
+    :is(.platform-win, .platform-web) #app-mount > [class*="bar_"][class*="show_"] > [class*="trailing_"] {
+        -webkit-app-region: no-drag !important;
+    }
+
+
 
   /* Left part */
+    /* ----- Back/Forward Buttons ----- */
+
+    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] > [class*="-leading"] > [class*="-backForwardButtons"] /* Old */,
+    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] > [class*="leading_"] > [class*="backForwardButtons_"] {
+        padding: 0 4px 0 0;
+    }
+
+    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] > [class*="-leading"] > [class*="-backForwardButtons"] > [class*="-button"] /* Old */,
+    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] > [class*="leading_"] > [class*="backForwardButtons_"] > [class*="button_"] {
+        width: 45px !important;
+        height: var(--custom-app-top-bar-height) !important;
+        gap: 0;
+        margin: 0;
+        padding: 0;
+        border-radius: 0 !important;
+        opacity: 1;
+    }
+    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] > [class*="-leading"] > [class*="-backForwardButtons"] > [class*="-button"] > svg /* Old */,
+    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] > [class*="leading_"] > [class*="backForwardButtons_"] > [class*="button_"] > svg {
+        height: 15px;
+        width: 15px;
+        scale: 1 !important;
+    }
+    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] > [class*="-leading"] > [class*="-backForwardButtons"] > [class*="-button"]:not([class*="-disabled"]) > svg path /* Old */,
+    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] > [class*="leading_"] > [class*="backForwardButtons_"] > [class*="button_"]:not([class*="disabled_"]) > svg path {
+        fill: var(--CaptionBarItemColor) !important;
+        opacity: 1 !important;
+    }
+    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] > [class*="-leading"] > [class*="-backForwardButtons"] > [class*="-button"][class*="-disabled"] > svg path /* old */,
+    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] > [class*="leading_"] > [class*="backForwardButtons_"] > [class*="button_"][class*="disabled_"] > svg path {
+        opacity: 0.5 !important;
+    }
+
+    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="-bar"] > [class*="-leading"] > [class*="-backForwardButtons"] > [class*="-button"]:not([class*="-disabled"]):hover /* Old */,
+    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] > [class*="leading_"] > [class*="backForwardButtons_"] > [class*="button_"]:not([class*="disabled_"]):hover {
+        background-color: var(--interactive-background-hover);
+    }
+    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="-bar"] > [class*="-leading"] > [class*="-backForwardButtons"] > [class*="-button"]:not([class*="_disabled"]):active /* old */,
+    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] > [class*="leading_"] > [class*="backForwardButtons_"] > [class*="button_"]:not([class*="disabled_"]):active {
+        background-color: var(--interactive-background-selected);
+    }
+    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="-bar"] > [class*="-leading"] > [class*="-backForwardButtons"] > [class*="-button"][class*="-back"] > svg path /* Old */,
+    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] > [class*="leading_"] > [class*="backForwardButtons_"] > [class*="button_"][class*="back_"] > svg path {
+        d: path("M10.733 19.79a.75.75 0 0 0 1.034-1.086L5.516 12.75H20.25a.75.75 0 0 0 0-1.5H5.516l6.251-5.955a.75.75 0 0 0-1.034-1.086l-7.42 7.067a.995.995 0 0 0-.3.58.754.754 0 0 0 .001.289.995.995 0 0 0 .3.579l7.419 7.067Z") !important;
+    }
+    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="-bar"] > [class*="-leading"] > [class*="-backForwardButtons"] > [class*="-button"][class*="-forward"] > svg path /* Old */,
+    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] > [class*="leading_"] > [class*="backForwardButtons_"] > [class*="button_"][class*="forward_"] > svg path {
+        d: path("M13.267 4.209a.75.75 0 0 0-1.034 1.086l6.251 5.955H3.75a.75.75 0 0 0 0 1.5h14.734l-6.251 5.954a.75.75 0 0 0 1.034 1.087l7.42-7.067a.996.996 0 0 0 .3-.58.758.758 0 0 0-.001-.29.995.995 0 0 0-.3-.578l-7.419-7.067Z") !important;
+    }
+
+
     /* ----- Icon ----- */
 
-    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="guildIcon"] /* old */,
-
-    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] [class*="guildIcon"] {
+    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="-title"] [class*="-guildIcon"] /* old */,
+    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] [class*="title_"] [class*="guildIcon_"] {
         background: var(--CaptionBarItemColor) !important;
 
         --W10ITB-icon-mask: url('data:image/svg+xml,%3Csvg%20aria-hidden%3D%22true%22%20role%3D%22img%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22none%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M19.73%204.87a18.2%2018.2%200%200%200-4.6-1.44c-.21.4-.4.8-.58%201.21-1.69-.25-3.4-.25-5.1%200-.18-.41-.37-.82-.59-1.2-1.6.27-3.14.75-4.6%201.43A19.04%2019.04%200%200%200%20.96%2017.7a18.43%2018.43%200%200%200%205.63%202.87c.46-.62.86-1.28%201.2-1.98-.65-.25-1.29-.55-1.9-.92.17-.12.32-.24.47-.37%203.58%201.7%207.7%201.7%2011.28%200l.46.37c-.6.36-1.25.67-1.9.92.35.7.75%201.35%201.2%201.98%202.03-.63%203.94-1.6%205.64-2.87.47-4.87-.78-9.09-3.3-12.83ZM8.3%2015.12c-1.1%200-2-1.02-2-2.27%200-1.24.88-2.26%202-2.26s2.02%201.02%202%202.26c0%201.25-.89%202.27-2%202.27Zm7.4%200c-1.1%200-2-1.02-2-2.27%200-1.24.88-2.26%202-2.26s2.02%201.02%202%202.26c0%201.25-.88%202.27-2%202.27Z%22%20class%3D%22%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E');
@@ -89,16 +210,19 @@
 
         -webkit-app-region: no-drag;
     }
-    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="title"] svg path:first-child /* old */,
-
-    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] [class*="title_"] svg path:first-child {
-        d: path("M19.73 4.87a18.2 18.2 0 0 0-4.6-1.44c-.21.4-.4.8-.58 1.21-1.69-.25-3.4-.25-5.1 0-.18-.41-.37-.82-.59-1.2-1.6.27-3.14.75-4.6 1.43A19.04 19.04 0 0 0 .96 17.7a18.43 18.43 0 0 0 5.63 2.87c.46-.62.86-1.28 1.2-1.98-.65-.25-1.29-.55-1.9-.92.17-.12.32-.24.47-.37 3.58 1.7 7.7 1.7 11.28 0l.46.37c-.6.36-1.25.67-1.9.92.35.7.75 1.35 1.2 1.98 2.03-.63 3.94-1.6 5.64-2.87.47-4.87-.78-9.09-3.3-12.83ZM8.3 15.12c-1.1 0-2-1.02-2-2.27 0-1.24.88-2.26 2-2.26s2.02 1.02 2 2.26c0 1.25-.89 2.27-2 2.27Zm7.4 0c-1.1 0-2-1.02-2-2.27 0-1.24.88-2.26 2-2.26s2.02 1.02 2 2.26c0 1.25-.88 2.27-2 2.27Z") !important;
-        fill: var(--CaptionBarItemColor);
+    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="-title"] svg /* old */,
+    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] [class*="title_"] svg {
+        height: 16px !important;
+        width: 16px !important;
 
         -webkit-app-region: no-drag;
     }
-    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="title"] svg path:not(:first-child) /* old */,
-
+    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="-title"] svg path:first-child /* old */,
+    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] [class*="title_"] svg path:first-child {
+        d: path("M19.73 4.87a18.2 18.2 0 0 0-4.6-1.44c-.21.4-.4.8-.58 1.21-1.69-.25-3.4-.25-5.1 0-.18-.41-.37-.82-.59-1.2-1.6.27-3.14.75-4.6 1.43A19.04 19.04 0 0 0 .96 17.7a18.43 18.43 0 0 0 5.63 2.87c.46-.62.86-1.28 1.2-1.98-.65-.25-1.29-.55-1.9-.92.17-.12.32-.24.47-.37 3.58 1.7 7.7 1.7 11.28 0l.46.37c-.6.36-1.25.67-1.9.92.35.7.75 1.35 1.2 1.98 2.03-.63 3.94-1.6 5.64-2.87.47-4.87-.78-9.09-3.3-12.83ZM8.3 15.12c-1.1 0-2-1.02-2-2.27 0-1.24.88-2.26 2-2.26s2.02 1.02 2 2.26c0 1.25-.89 2.27-2 2.27Zm7.4 0c-1.1 0-2-1.02-2-2.27 0-1.24.88-2.26 2-2.26s2.02 1.02 2 2.26c0 1.25-.88 2.27-2 2.27Z") !important;
+        fill: var(--CaptionBarItemColor);
+    }
+    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="-title"] svg path:not(:first-child) /* old */,
     :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] [class*="title_"] svg path:not(:first-child) {
         display: none !important;
     }
@@ -106,72 +230,31 @@
 
     /* ----- Text ----- */
 
-    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="lineClamp1"] /* old */,
-
+    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="-lineClamp1"] /* old */,
     :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] [class*="lineClamp1_"] {
         font-family: var(--titleFontWithFallback);
         font-size: var(--titleSize);
         font-weight: var(--titleBoldness) !important;
         color: var(--CaptionBarItemColor);
-    }
-    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="lineClamp1"]:after /* old */,
 
+        display: inline-grid;
+        grid-template-columns: auto auto 1fr;
+    }
+    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="-lineClamp1"]:after /* old */,
     :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] [class*="lineClamp1_"]:after {
-        content: " " var(--titleDashText) " " var(--titleAfterDashText);
+        content: "\00a0" var(--titleDashText) "\00a0" var(--titleAfterDashText);
     }
+    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="-lineClamp1"]:before /* old,
+    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] [class*="lineClamp1_"]:before */ {
+        content: "\00a0(" var(--W10ITB-Loc-OldClassEOL) ")";
 
+        order: 999;
+        opacity: 0.25;
 
-    /* ----- Measures ----- */
-
-    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] /* old */,
-
-    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] {
-        background: var(--titleBarColor);
-    }
-
-    /* Adjusting element order */
-
-    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] > [class*="title"] /* old */,
-
-    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] > [class*="title_"] {
-        justify-content: left;
-        padding-left: 8px;
-        position: relative;
-        order: 1;
-    }
-    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] > [class*="title"] [class*="title"] /* old */,
-
-    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] > [class*="title_"] [class*="title_"] {
-        padding:0 !important;
-        gap: 6px;
-    }
-
-    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] > [class*="leading"] /* old */,
-
-    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] > [class*="leading_"] {
-        order: 2;
-        position: absolute;
-        width: 100%;
-        justify-content: center;
-        margin: 0;
-        pointer-events: none;
-        -webkit-app-region: drag;
-    }
-    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] > [class*="leading"]:before /* old */,
-
-    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] > [class*="leading_"]:before {
-        margin-left: 0 !important;
-    }
-    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] > [class*="leading"]:after /* old */,
-
-    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] > [class*="leading_"]:after {
-        margin-right: 0 !important;
-    }
-
-    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] > [class*="trailing"] /* old */,
-
-    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] > [class*="trailing_"] {
-        order: 3;
+        font-family: var(--titleFontWithFallback);
+        font-size: var(--titleSize);
+        font-weight: var(--titleBoldness) !important;
+        color: var(--CaptionBarItemColor);
     }
 
 
@@ -179,9 +262,8 @@
   /* Right part */
     /* ----- Common ----- */
 
-    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] > [class*="trailing"],
-    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="winButtons"] /* old */,
-
+    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] > [class*="-trailing"],
+    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="-winButtons"] /* old */,
     :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] > [class*="trailing_"],
     :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] [class*="winButtons_"] {
         gap: 0 !important;
@@ -190,8 +272,7 @@
 
     /* ----- Separator ----- */
 
-    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="winButtonsWithDivider"]:before /* old */,
-
+    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="-winButtonsWithDivider"]:before /* old */,
     :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] [class*="winButtonsWithDivider_"]:before {
         border-left-color: var(--CaptionBarItemColor);
         opacity: 0.25;
@@ -201,31 +282,24 @@
 
     /* ----- System caption buttons ----- */
 
-    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="winButton"]:not([class*="winButtons"]) /* old */,
-
+    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="-winButton"]:not([class*="-winButtons"]) /* old */,
     :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] [class*="winButton_"] {
         width: 45px !important;
     }
-    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="winButtonClose"]:hover /* old */,
-
+    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="-winButtonClose"]:hover /* old */,
     :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] [class*="winButtonClose_"]:hover {
         background-color: #c42b1c;
     }
-    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="winButtonClose"]:active /* old */,
-
+    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="-winButtonClose"]:active /* old */,
     :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] [class*="winButtonClose_"]:active {
         background-color: #b22a1c;
     }
 
-    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="winButton"] rect,
-    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="winButton"] polygon /* old */,
-
-    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] [class*="winButton_"] rect,
-    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] [class*="winButton_"] polygon {
+    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="-winButton"] :is(rect, polygon) /* old */,
+    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] [class*="winButton_"] :is(rect, polygon) {
         color: var(--CaptionBarItemColor) !important;
     }
-    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="winButton"]:hover polygon /* old */,
-
+    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="-winButton"]:hover polygon /* old */,
     :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] [class*="winButton_"]:hover polygon {
         color: #ffffff !important;
     }
@@ -233,47 +307,35 @@
 
     /* ----- Other buttons on titlebar ----- */
 
-    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="iconWrapper"],
-    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="clickable"] /* old */,
-
-    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] [class*="iconWrapper_"],
-    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] [class*="clickable_"] {
+    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] > [class*="-trailing"] :is([class*="-iconWrapper"], [class*="-clickable"]) /* old */,
+    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] > [class*="trailing_"] :is([class*="iconWrapper_"], [class*="clickable_"]) {
         width: 45px !important;
         height: var(--custom-app-top-bar-height) !important;
         margin: 0;
         padding: 0;
+        border-radius: 0;
     }
-    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="iconWrapper"]:hover,
-    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="clickable"]:hover /* old */,
-
-    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] [class*="iconWrapper_"]:hover,
-    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] [class*="clickable_"]:hover {
-        background-color: var(--interactive-background-hover);
-    }
-
-    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="iconWrapper"] > svg,
-    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="clickable"] > svg /* old */,
-
-    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] [class*="iconWrapper_"] > svg,
-    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] [class*="clickable_"] > svg {
+    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] :is([class*="-iconWrapper"], [class*="-clickable"]) > svg /* old*/,
+    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] :is([class*="iconWrapper_"], [class*="clickable_"]) > svg {
         width: 16px;
         height: 16px;
         scale: 1 !important;
+        background-color: transparent !important;
+        border-radius: 0 !important;
     }
-    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="clickable"] > svg /* old */,
-
+    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="-clickable"] > svg /* old */,
     :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] [class*="clickable_"] > svg {
         width: 44px;
     }
-    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="iconWrapper"] > svg path,
-    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="clickable"] > svg path /* old */,
-
-    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] [class*="iconWrapper_"] > svg path,
-    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] [class*="clickable_"] > svg path {
+    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] :is([class*="-iconWrapper"], [class*="-clickable"]) > svg path /* old */,
+    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] :is([class*="iconWrapper_"], [class*="clickable_"]) > svg path {
         fill: var(--CaptionBarItemColor);
     }
-    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="clickable"] [class*="badge"] /* old */,
-
+    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] circle /* old */,
+    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] circle {
+        display: none;
+    }
+    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="-clickable"] [class*="-badge"] /* old */,
     :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] [class*="clickable_"] [class*="badge_"] {
         bottom: 8px;
         right: 16px;
@@ -282,39 +344,26 @@
         box-shadow: 0 0 0 1px #fff;
     }
 
-    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] circle /* old */,
-
-    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] circle {
-        display: none;
+    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="-clickable"]:hover /* old */,
+    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] [class*="clickable_"]:hover {
+        background-color: var(--interactive-background-hover);
+    }
+    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="-clickable"]:is([aria-expanded="true"], :active) /* old */,
+    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] [class*="clickable_"]:is([aria-expanded="true"], :active) {
+        background-color: var(--interactive-background-selected);
     }
 
-    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="clickable"][aria-describedby] path /* old */,
-
+    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="-clickable"][aria-describedby] path /* old */,
     :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] [class*="clickable_"][aria-describedby] path {
         d: path("M6.25 3h11.5a3.25 3.25 0 0 1 3.24 3.07l.01.18v11.5a3.25 3.25 0 0 1-3.07 3.24l-.18.01H6.25a3.25 3.25 0 0 1-3.24-3.07L3 17.75V6.25a3.25 3.25 0 0 1 3.07-3.24L6.25 3h11.5-11.5ZM4.5 14.5v3.25c0 .92.7 1.67 1.6 1.74l.15.01h11.5c.92 0 1.67-.7 1.74-1.6l.01-.15V14.5h-3.82a3.75 3.75 0 0 1-3.48 3H12a3.75 3.75 0 0 1-3.63-2.81l-.04-.19H4.5v3.25-3.25Zm13.25-10H6.25c-.92 0-1.67.7-1.74 1.6l-.01.15V13H9c.38 0 .7.28.74.65l.01.1a2.25 2.25 0 0 0 4.5.15v-.15c0-.38.28-.7.65-.74L15 13h4.5V6.25c0-.92-.7-1.67-1.6-1.74l-.15-.01Z") !important;
     }
     :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] a[href="https://support.discord.com"] path /* old */,
-
     :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] a[href="https://support.discord.com"] path {
         d: path("M12 4a5 5 0 0 0-5 5 .75.75 0 0 0 1.5 0 3.5 3.5 0 1 1 7 0c0 .85-.22 1.42-.53 1.86a5.82 5.82 0 0 1-1.44 1.34c-1 .77-2.28 1.73-2.28 3.8v.25a.75.75 0 0 0 1.5 0V16c0-1.32.71-1.86 1.79-2.68l.04-.04c.53-.4 1.15-.88 1.62-1.56A5 5 0 0 0 12 4Zm0 17a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z") !important;
     }
-    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] svg:has(path[class*="updateIconForeground"]) path /* old */,
-
+    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] svg:has(path[class*="-updateIconForeground"]) path /* old */,
     :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] svg:has(path[class*="updateIconForeground_"]) path {
         d: path("M19.25 20.5a.75.75 0 1 1 0 1.5l-16 .004a.75.75 0 1 1 0-1.5l13-.004ZM11.648 2.012l.102-.007a.75.75 0 0 1 .743.648l.007.102-.001 13.685 3.722-3.72a.75.75 0 0 1 .976-.073l.085.073a.75.75 0 0 1 .072.976l-.073.084-4.997 4.997a.75.75 0 0 1-.976.073l-.085-.073-5.003-4.996a.75.75 0 0 1 .976-1.134l.084.072 3.719 3.714L11 2.755a.75.75 0 0 1 .648-.743l.102-.007-.102.007Z") !important;
     }
 
-
-    /* ----- Additional icons active state ----- */
-
-    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="button"][class*="iconWrapper"][class*="selected"],
-    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="button"][class*="iconWrapper"]:active,
-    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="clickable"]:active,
-    :is(.platform-win, .platform-web) :is([class*="-base"], #app-mount) > [class*="-bar"] [class*="clickable"][aria-expanded="true"] /* old */,
-
-    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] [class*="button_"][class*="iconWrapper_"][class*="selected_"],
-    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] [class*="button_"][class*="iconWrapper_"]:active,
-    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] [class*="clickable_"]:active,
-    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] [class*="clickable_"][aria-expanded="true"] {
-        background-color: var(--interactive-background-selected);
-    }
+/* ---------- */
