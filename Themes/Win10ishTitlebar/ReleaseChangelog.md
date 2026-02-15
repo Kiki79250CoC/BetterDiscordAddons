@@ -1,7 +1,10 @@
 # Windows 10/11-ish Titlebar - Changelog
 <sup>*Times are expressed in CET/CEST (UTC+1/+2) time.*</sup><br><sup>*[< Back to README](./)*</sup>
 
-⚠️ *If you haven't restarted Discord since 22 January 2026, support for the old-newish classes will be removed on the 15 February, 2026.*
+### 1.3.395 <sup><sub>*(15 February 2026)*</sub></sup>
+- Removed support for former classes used by Discord clients between December 2025 and January 2026.
+- Fixed Back/Forward button gap.
+- Added support for the Vencord's DevTools button.
 
 ### 1.3.390 <sup><sub>*(30 January 2026)*</sub></sup>
 - Fixed Help and Inbox buttons appearance.
