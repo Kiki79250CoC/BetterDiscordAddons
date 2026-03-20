@@ -1,6 +1,9 @@
 # Windows 10/11-ish Titlebar - Changelog
 <sup>*Times are expressed in CET/CEST (UTC+1/+2) time.*</sup><br><sup>*[< Back to README](./)*</sup>
 
+### 1.3.401 <sup><sub>*(20 March 2026)*</sub></sup>
+- Fixed "Update Available" button icon.
+
 ### 1.3.400 <sup><sub>*(20 March 2026)*</sub></sup>
 - Fixed Inbox button icon.
 - Optimized some rules.
