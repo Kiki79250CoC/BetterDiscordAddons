@@ -1,6 +1,11 @@
 # Windows 10/11-ish Titlebar - Changelog
 <sup>*Times are expressed in CET/CEST (UTC+1/+2) time.*</sup><br><sup>*[< Back to README](./)*</sup>
 
+### 1.3.400 <sup><sub>*(20 March 2026)*</sub></sup>
+- Fixed Inbox button icon.
+- Optimized some rules.
+- Removed last rule that was compatible with short-lived classes (the "no longer supported" message).
+
 ### 1.3.395 <sup><sub>*(15 February 2026)*</sub></sup>
 - Removed support for former classes used by Discord clients between December 2025 and January 2026.
 - Fixed Back/Forward button gap.
