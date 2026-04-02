@@ -112,7 +112,12 @@ Maybe yes, as there's certainly some things I want to add to it like ability to 
 
 You know, this kind of things…
 
+## Credits
+This theme use the following third-party assets:
 
+- [FluentIcons](https://fluenticons.co/)
+
+(Modified variants of the icons are included in the ["SVG" subfolder](./SVG))
 
 
 

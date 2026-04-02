@@ -1,6 +1,12 @@
 # Windows 10/11-ish Titlebar - Changelog
 <sup>*Times are expressed in CET/CEST (UTC+1/+2) time.*</sup><br><sup>*[< Back to README](./)*</sup>
 
+### 1.3.410 <sup><sub>*(03 April 2026)*</sub></sup>
+- Added support and relevant-themed icon for Marked Messages.
+- Added support and relevant-themed icon for "Last Meadow Online" temporary game.
+- Removed support for rules marked as "old" in version 1.3.400.
+- Included links to where icons were from in README.md.
+
 ### 1.3.401 <sup><sub>*(20 March 2026)*</sub></sup>
 - Fixed "Update Available" button icon.
 
