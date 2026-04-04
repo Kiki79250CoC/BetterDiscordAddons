@@ -1,6 +1,10 @@
 # Windows 10/11-ish Titlebar - Changelog
 <sup>*Times are expressed in CET/CEST (UTC+1/+2) time.*</sup><br><sup>*[< Back to README](./)*</sup>
 
+### 1.3.415 <sup><sub>*(04 April 2026)*</sub></sup>
+- Added support and relevant-themed icon for the "PingNotification" third-party plugin.
+- Added support and relevant-themed icon for the "PasscodeLock" third-party plugin.
+
 ### 1.3.410 <sup><sub>*(03 April 2026)*</sub></sup>
 - Added support and relevant-themed icon for Marked Messages.
 - Added support and relevant-themed icon for "Last Meadow Online" temporary game.
