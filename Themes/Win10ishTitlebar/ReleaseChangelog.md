@@ -1,6 +1,10 @@
 # Windows 10/11-ish Titlebar - Changelog
 <sup>*Times are expressed in CET/CEST (UTC+1/+2) time.*</sup><br><sup>*[< Back to README](./)*</sup>
 
+### 1.3.420 <sup><sub>*(08 April 2026)*</sub></sup>
+- Added support and relevant-themed icon for the "CSS Snippet Repo" third-party plugin.
+- Adjusted buttons position on Discord Web Client by removing the right-end gap.
+
 ### 1.3.415 <sup><sub>*(04 April 2026)*</sub></sup>
 - Added support and relevant-themed icon for the "PingNotification" third-party plugin.
 - Added support and relevant-themed icon for the "PasscodeLock" third-party plugin.

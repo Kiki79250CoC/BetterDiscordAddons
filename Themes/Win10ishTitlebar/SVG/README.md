@@ -22,6 +22,8 @@
 
 · [W10ITB-Icon-ThirdParty-PasscodeLock](./W10ITB-Icon-ThirdParty-PasscodeLock.svg)
 
+· [W10ITB-Icon-ThirdParty-CSSSnippetRepo](./W10ITB-Icon-ThirdParty-CSSSnippetRepo.svg)
+
 
 
 
