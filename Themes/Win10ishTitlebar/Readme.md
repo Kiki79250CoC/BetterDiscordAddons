@@ -87,6 +87,18 @@ or…
 }
 ```
 
+## Third-Party plugins and tools compatibility
+
+This theme supports some of the third-party plugins and tools that adds an icon to the titlebar.
+
+Supported plugins:
+
+   · PingNotification<br>   · PasscodeLock<br>   · CSS Snippet Repo
+
+Supported additions provided by external tools:
+
+   · Vencord's "DevTools" menu
+
 ## "Can I integrate it into my project?"
 
 You can, just add the following to your CSS:

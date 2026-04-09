@@ -10,7 +10,7 @@
 /* Default Root */
 
 :root {
-    --W10ITB-ThemeRealVersion: "1.3.420";
+    --W10ITB-ThemeRealVersion: "1.3.425";
 
     --custom-app-top-bar-height: calc(18px + var(--space-sm));
     --titleFontWithFallback: var(--titleFont), "gg sans", sans-serif;
@@ -97,10 +97,34 @@
         order: 2;
         position: relative;
         justify-content: left;
+        display: inline-grid;
+        grid-template-columns: auto 1fr auto;
+        background: none !important;
+        border: none !important;
+        padding-right: 8px;
+    }
+    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] > [class*="title_"]:before,
+    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] > [class*="title_"]:after {
+        color:var(--CaptionBarItemColor) !important;
+        font-family: var(--titleFontWithFallback) !important;
+        font-size: var(--titleSize) !important;
+        font-weight: var(--titleBoldness) !important;
+        line-height: 1.2857142857142858 !important;
+        align-self: start;
+        justify-self: end;
+        margin: 0 !important;
+    }
+    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] > [class*="title_"]:before {
+        order: 2;
+        padding: 0 0 0 6px !important;
+    }
+    :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] > [class*="title_"]:after {
+        order: 3;
     }
     :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] > [class*="title_"] [class*="title_"] {
         padding: 0 0 0 8px !important;
         gap: 6px;
+        order: 1;
     }
 
     :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] > [class*="trailing_"] {
@@ -150,6 +174,7 @@
         opacity: 1 !important;
     }
     :is(.platform-win, .platform-web) :is([class*="base_"], #app-mount) > [class*="bar_"] > [class*="leading_"] > [class*="backForwardButtons_"] > [class*="button_"][class*="disabled_"] > svg path {
+        fill: var(--CaptionBarItemColor) !important;
         opacity: 0.5 !important;
     }
 
@@ -212,6 +237,7 @@
         font-size: var(--titleSize);
         font-weight: var(--titleBoldness) !important;
         color: var(--CaptionBarItemColor);
+        line-height: 1.2857142857142858 !important;
 
         display: inline-grid;
         grid-template-columns: auto auto 1fr;
@@ -436,9 +462,3 @@
 .sr-toolbar-button > svg circle {
     display: inherit !important;
 }
-
-
-
-
-
-

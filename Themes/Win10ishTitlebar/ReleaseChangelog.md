@@ -1,6 +1,11 @@
 # Windows 10/11-ish Titlebar - Changelog
 <sup>*Times are expressed in CET/CEST (UTC+1/+2) time.*</sup><br><sup>*[< Back to README](./)*</sup>
 
+### 1.3.425 <sup><sub>*(09 April 2026)*</sub></sup>
+- Improved compatibility with some themes (for example "GGO Kirito").
+- Fixed color of Back/Forward buttons when disabled.
+- Added supported 3rd-party plugins in README.md.
+
 ### 1.3.420 <sup><sub>*(08 April 2026)*</sub></sup>
 - Added support and relevant-themed icon for the "CSS Snippet Repo" third-party plugin.
 - Adjusted buttons position on Discord Web Client by removing the right-end gap.

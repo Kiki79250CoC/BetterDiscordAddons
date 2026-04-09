@@ -24,6 +24,8 @@
 
 · [W10ITB-Icon-ThirdParty-CSSSnippetRepo](./W10ITB-Icon-ThirdParty-CSSSnippetRepo.svg)
 
+· [W10ITB-Icon-ThirdParty-Vencord-DevTools](./W10ITB-Icon-ThirdParty-Vencord-DevTools.svg)
+
 
 
 
