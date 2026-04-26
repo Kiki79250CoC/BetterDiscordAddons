@@ -1,6 +1,9 @@
 # Windows 10/11-ish Titlebar - Changelog
 <sup>*Times are expressed in CET/CEST (UTC+1/+2) time.*</sup><br><sup>*[< Back to README](./)*</sup>
 
+### 1.3.430 <sup><sub>*(26 April 2026)*</sub></sup>
+- Fixed Inbox button icon when a badge (red dot) is present.
+
 ### 1.3.425 <sup><sub>*(09 April 2026)*</sub></sup>
 - Improved compatibility with some themes (for example "GGO Kirito").
 - Fixed color of Back/Forward buttons when disabled.
