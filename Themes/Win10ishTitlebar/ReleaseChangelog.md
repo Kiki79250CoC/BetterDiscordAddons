@@ -1,6 +1,9 @@
 # Windows 10/11-ish Titlebar - Changelog
 <sup>*Times are expressed in CET/CEST (UTC+1/+2) time.*</sup><br><sup>*[< Back to README](./)*</sup>
 
+### 1.3.435 <sup><sub>*(15 August 2026)*</sub></sup>
+- Added rule to display the minimal titlebar when the "reconnect" screen is displayed.
+
 ### 1.3.430 <sup><sub>*(26 April 2026)*</sub></sup>
 - Fixed Inbox button icon when a badge (red dot) is present.
 

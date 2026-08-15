@@ -10,7 +10,7 @@
 /* Default Root */
 
 :root {
-    --W10ITB-ThemeRealVersion: "1.3.430";
+    --W10ITB-ThemeRealVersion: "1.3.435";
 
     --custom-app-top-bar-height: calc(18px + var(--space-sm));
     --titleFontWithFallback: var(--titleFont), "gg sans", sans-serif;
@@ -143,6 +143,13 @@
     }
     :is(.platform-win, .platform-web) #app-mount > [class*="bar_"][class*="show_"] > [class*="trailing_"] {
         -webkit-app-region: no-drag !important;
+    }
+
+
+    /* ---- Show simple titlebar when no connect screen is displayed ---- */
+
+    #app-mount:has([class*="container_"] > [class*="problems_"]) > [class*="bar_"] {
+        display: flex !important;
     }
 
 
