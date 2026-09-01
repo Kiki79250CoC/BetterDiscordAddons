@@ -1,6 +1,11 @@
 # Windows 10/11-ish Titlebar - Changelog
 <sup>*Times are expressed in CET/CEST (UTC+1/+2) time.*</sup><br><sup>*[< Back to README](./)*</sup>
 
+### 1.4.500 <sup><sub>*(01 September 2026)*</sub></sup>
+- Performed a bit of ***O** P **T** I **M** I **Z** A **T** I **O** N ™*.
+  - This is also some preliminary work to push optimization even more.
+  - Due to this preliminary effort, icons on browser may look broken, it should be fixed by next update.
+
 ### 1.3.435 <sup><sub>*(15 August 2026)*</sub></sup>
 - Added rule to display the minimal titlebar when the "reconnect" screen is displayed.
 
