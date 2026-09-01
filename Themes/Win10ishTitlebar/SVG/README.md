@@ -14,6 +14,8 @@
 
 · [W10ITB-Icon-Help](./W10ITB-Icon-Help.svg)
 
+· [W10ITB-Icon-Update](./W10ITB-Icon-Update.svg)
+
 · [W10ITB-Icon-LMO](./W10ITB-Icon-LMO.svg)
 
 ## Icons used for 3rd-Party plugins this theme supports
