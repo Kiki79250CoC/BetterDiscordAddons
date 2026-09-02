@@ -10,7 +10,7 @@
 /* Default Root */
 
 :root {
-    --W10ITB-ThemeRealVersion: "1.4.500";
+    --W10ITB-ThemeRealVersion: "1.4.520";
 
     --custom-app-top-bar-height: calc(18px + var(--space-sm));
     --titleFontWithFallback: var(--titleFont), "gg sans", sans-serif;
@@ -65,38 +65,32 @@
     }
 
     /* ----- General ----- */
-    :not(.platform-osx) :is(div[class^="base__"], div#app-mount) > div[class^="bar_"] {
+    :is(div[class*="systemBar_"], div[data-window-chrome]) {
         background: var(--titleBarColor);
         gap: 0px;
         padding-inline-end: 0;
     }
-    :not(.platform-osx) div[class^="base__"] > [class^="bar_"] {
+    div[data-window-chrome] {
         display: inline-grid;
         grid-template-columns: auto 1fr auto;
-        justify-content: start;
     }
 
-    :not(.platform-osx) :is(div[class^="base__"], div#app-mount) > div[class^="bar_"] * {
+    :is(div[class*="systemBar_"], div[data-window-chrome]) * {
         gap: 0;
     }
 
     /* ----- General - Buttons ----- */
-    :not(.platform-osx) :is(div[class^="base__"], div#app-mount) > div[class^="bar_"] div[role="button"] {
-        width: 46px;
+    :is(div[class*="systemBar_"], div[data-window-chrome]) div[role="button"] {
+        width: 46px !important;
         height: var(--custom-app-top-bar-height) !important;
-        margin: 0;
-        padding: 0;
+        margin: 0 !important;
+        padding: 0 !important;
         border-radius: 0 !important;
-        opacity: 1;
-        /*box-shadow: inset 0 0 0 1px #fff !important;*/
     }
-    :not(.platform-osx) div[class^="base__"] > div[class^="bar_"] div[role="button"]:not(div[class*="back_"]) {
-        margin-left: -1px;
-    }
-    :not(.platform-osx) div[class^="base__"] > div[class^="bar_"] div[role="button"]:not(div[class^="winButton_"]) > * {
+    div[data-window-chrome] div[role="button"]:not(div[class^="winButton_"]) > * {
         display:none;
     }
-    :not(.platform-osx) div[class^="base__"] > div[class^="bar_"] div[role="button"]:not(div[class^="winButton_"]):after {
+    div[data-window-chrome] div[role="button"]:not(div[class^="winButton_"]):after {
         content: "";
         width: 16px;
         height: 16px;
@@ -113,69 +107,60 @@
         mask-position: center;
     }
 
-    :not(.platform-osx) :is(div[class^="base__"], div#app-mount) > div[class^="bar_"] div[role="button"]:not([class*="disabled_"]):hover {
+    :is(div[class*="systemBar_"], div[data-window-chrome]) div[role="button"]:hover {
         background-color: var(--interactive-background-hover);
     }
-    :not(.platform-osx) :is(div[class^="base__"], div#app-mount) > div[class^="bar_"] div[role="button"]:not([class*="disabled_"]):is([aria-expanded="true"], [class*="selected_"], :active) {
+    :is(div[class*="systemBar_"], div[data-window-chrome]) div[role="button"]:is([aria-expanded="true"], :active) {
         background-color: var(--interactive-background-selected);
     }
 
-    :not(.platform-osx) div[class^="base__"] > div[class^="bar_"] div[role="button"][class*="disabled_"] {
+    div[data-window-chrome] div[class*="disabled_"] {
         opacity: 0.5 !important;
+        pointer-events: none !important;
     }
 
     /* ----- General - System buttons ----- */
-    :not(.platform-osx) :is(div[class^="base__"], div#app-mount) > div[class^="bar_"] div[class^="winButton_"] :is(rect, polygon) {
+    :is(div[class*="systemBar_"], div[data-window-chrome]) :is(rect, polygon) {
         color: var(--CaptionBarItemColor) !important;
     }
 
-    :not(.platform-osx) :is(div[class^="base__"], div#app-mount) > div[class^="bar_"] div[role="button"][class*="winButtonClose_"]:hover {
+      /* Close button highlight */
+    div[data-window-chrome] > div:last-child > div:last-child > div:last-child:hover {
         background-color: #c42b1c !important;
     }
-    :not(.platform-osx) :is(div[class^="base__"], div#app-mount) > div[class^="bar_"] div[role="button"][class*="winButtonClose_"]:active {
+    div[data-window-chrome] > div:last-child > div:last-child > div:last-child:active {
         background-color: #b22a1c !important;
     }
 
     /* ----- General - Buttons' separator ----- */
-    :not(.platform-osx) div[class^="base__"] > div[class^="bar_"] div[class*="winButtonsWithDivider_"]:before {
+    div[data-window-chrome] > div:last-child > div:last-child:before {
         border-left-color: var(--CaptionBarItemColor);
         opacity: 0.25;
         margin-inline: var(--space-12);
     }
 
     /* ----- General - Show simple titlebar when no connect screen is displayed ----- */
-    div#app-mount:has([class*="container_"] > div[class*="problems_"]) > div[class^="bar_"] {
+    div#app-mount:has(a[href="https://discordstatus.com"]) > [class*="systemBar_"] {
         display: flex !important;
-    }
-
-    /* ----- Adjusting element order ----- */
-    :not(.platform-osx) div[class^="base__"] > div[class^="bar_"] > div[class^="leading_"] {
-        order: 1;
-    }
-    :not(.platform-osx) div[class^="base__"] > div[class^="bar_"] > div[class^="title_"] {
-        order: 2;
-    }
-    :not(.platform-osx) div[class^="base__"] > div[class^="bar_"] > div[class^="trailing_"] {
-        order: 3;
     }
 
 
   /* Structure */
     /* ----- Left - "Leading" ----- */
-    :not(.platform-osx) div[class^="base__"] > div[class^="bar_"] > div[class^="leading_"]:before,
-    :not(.platform-osx) div[class^="base__"] > div[class^="bar_"] > div[class^="leading_"]:after {
+    div[data-window-chrome] > div:first-child:before,
+    div[data-window-chrome] > div:first-child:after {
         display: none !important;
     }
 
     /* ----- Middle - "Title" ----- */
-    :not(.platform-osx) div[class^="base__"] > div[class^="bar_"] > div[class^="title_"] > div[class^="title_"] {
+    div[data-window-chrome] > div:has([data-text-variant]) > * {
         padding: 0 0 0 var(--space-12) !important;
         gap: 6px !important;
         display: inline-grid;
         grid-template-columns: auto 1fr;
         max-width: none;
     }
-    :not(.platform-osx) div[class^="base__"] > div[class^="bar_"] > div[class^="title_"] {
+    div[data-window-chrome] > div:has([data-text-variant]) {
         position: relative;
         justify-content: left;
         
@@ -186,27 +171,13 @@
     }
 
 
-    /* ----- Disable drag on button regions (when the secoundary bar is NOT displayed) ----- */
-
-    :not(.platform-osx) div#app-mount:has(> div[class^="bar_"][class*="show_"]) div[class^="base__"] > div[class^="bar_"] > :is(div[class^="leading_"], div[class^="title_"]),
-    :not(.platform-osx) div#app-mount:has(> div[class^="bar_"][class*="show_"]) div[class^="base__"] > div[class^="bar_"] > div[class^="title_"] :is(div[class*="guildIcon_"], svg),
-    :not(.platform-osx) div#app-mount:has(> div[class^="bar_"][class*="show_"]) div[class^="base__"] > div[class^="bar_"] > div[class^="trailing_"] a *,
-    :not(.platform-osx) div#app-mount:has(> div[class^="bar_"][class*="show_"]) div[class^="base__"] > div[class^="bar_"] > div[class^="trailing_"] [class*="clickable_"],
-    :not(.platform-osx) div#app-mount:has(> div[class^="bar_"][class*="show_"]) div[class^="base__"] > div[class^="bar_"] > div[class^="trailing_"] [class*="winButtonsWithDivider_"]::before {
-        -webkit-app-region: drag !important;
-    }
-    :not(.platform-osx) div#app-mount > div[class^="bar_"][class*="show_"] > div[class^="trailing_"] {
-        -webkit-app-region: no-drag !important;
-    }
-
-
   /* Left part */
     /* ----- Back/Forward Buttons ----- */
-    :not(.platform-osx) div[class^="base__"] > div[class^="bar_"] div[role="button"][class*="back_"]:after {
+    div[data-window-chrome] > div:first-child > div > div:first-child:after {
         --W10ITB-icon-mask: url("https://kiki79250coc.github.io/BetterDiscordAddons/Themes/Win10ishTitlebar/SVG/W10ITB-Icon-Back.svg");
         height: 15px !important; /* TEMP - Fix rendering to new method */
     }
-    :not(.platform-osx) div[class^="base__"] > div[class^="bar_"] div[role="button"][class*="forward_"]:after {
+    div[data-window-chrome] > div:first-child > div > div:last-child:after {
         --W10ITB-icon-mask: url("https://kiki79250coc.github.io/BetterDiscordAddons/Themes/Win10ishTitlebar/SVG/W10ITB-Icon-Forward.svg");
         height: 15px !important; /* TEMP - Fix rendering to new method */
     }
@@ -214,8 +185,7 @@
 
   /* Middle part */
     /* ----- Icon ----- */
-    :not(.platform-osx) div[class^="base__"] > div[class^="bar_"] div[class^="title_"] div[class*="guildIcon_"],
-    :not(.platform-osx) div[class^="base__"] > div[class^="bar_"] div[class^="title_"] svg {
+    div[data-window-chrome] div:has([data-text-variant]) > :is(div[class*="guildIcon_"], svg) {
         background: var(--CaptionBarItemColor) !important;
 
         --W10ITB-icon-mask: url("https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/66e278299a53f5bf88615e90_Symbol.svg");
@@ -233,23 +203,21 @@
         height: 16px !important;
         width: 16px !important;
         border-radius: 0px !important;
-
-        -webkit-app-region: no-drag;
     }
-    :not(.platform-osx) div[class^="base__"] > div[class^="bar_"] div[class^="title_"] svg path {
+    div[data-window-chrome] > div:has([data-text-variant]) svg path {
         display: none !important;
     }
 
     /* ----- Text - Left ----- */
-    :not(.platform-osx) div[class^="base__"] > div[class^="bar_"] div[class*="lineClamp1_"] {
+    div[data-window-chrome] div[data-text-variant] {
         display: inline-grid;
         grid-template-columns: auto auto 1fr;
 
         --W10ITB-INT-LineHeight: 1.4;
     }
-    :not(.platform-osx) div[class^="base__"] > div[class^="bar_"] div[class*="lineClamp1_"],
-    :not(.platform-osx) div[class^="base__"] > div[class^="bar_"] div[class*="lineClamp1_"]:after,
-    :not(.platform-osx) div[class^="base__"] > div[class^="bar_"] div[class*="lineClamp1_"]:before{
+    div[data-window-chrome] div[data-text-variant],
+    div[data-window-chrome] div[data-text-variant]:after,
+    div[data-window-chrome] div[data-text-variant]:before{
         font-family: var(--titleFontWithFallback) !important;
         font-size: var(--titleSize) !important;
         font-weight: var(--titleBoldness) !important;
@@ -257,10 +225,10 @@
         line-height: var(--W10ITB-INT-LineHeight) !important;
         max-height: calc(var(--titleSize) * var(--W10ITB-INT-LineHeight)) !important;
     }
-    :not(.platform-osx) div[class^="base__"] > div[class^="bar_"] div[class*="lineClamp1_"]:after {
+    div[data-window-chrome] div[data-text-variant]:after {
         content: "\00a0" var(--titleDashText) "\00a0" var(--titleAfterDashText);
     }
-    /* :not(.platform-osx):has(style#Win10ishTitlebar-theme-container) div[class^="base__"] > div[class^="bar_"] div[class*="lineClamp1_"]:before {
+    /* html:has(style#Win10ishTitlebar-theme-container) div[data-window-chrome] div[data-text-variant]:before {
         content: "\00a0(" var(--W10ITB-Loc-StubLoaderUpdate) ")";
         order: 999;
         opacity: 0.25;
@@ -270,15 +238,14 @@
     } */
 
     /* ----- Text - Right ----- */
-    :not(.platform-osx) div[class^="base__"] > div[class^="bar_"] > div[class^="title_"] {
+    div[data-window-chrome] > div:has([data-text-variant]) {
         --W10ITB-INT-LineHeight: 1.4;
-        
         background: none !important;
         white-space: nowrap;
     }
-    :not(.platform-osx) div[class^="base__"] > div[class^="bar_"] > div[class^="title_"],
-    :not(.platform-osx) div[class^="base__"] > div[class^="bar_"] > div[class^="title_"]:before,
-    :not(.platform-osx) div[class^="base__"] > div[class^="bar_"] > div[class^="title_"]:after{
+    div[data-window-chrome] > div:has([data-text-variant]),
+    div[data-window-chrome] > div:has([data-text-variant]):before,
+    div[data-window-chrome] > div:has([data-text-variant]):after{
         font-family: var(--titleFontWithFallback) !important;
         font-size: var(--titleSize) !important;
         font-weight: var(--titleBoldness) !important;
@@ -286,12 +253,13 @@
         line-height: var(--W10ITB-INT-LineHeight) !important;
         max-height: calc(var(--titleSize) * var(--W10ITB-INT-LineHeight)) !important;
     }
-    :not(.platform-osx) div[class^="base__"] > div[class^="bar_"] > div[class^="title_"]:before {
+    div[data-window-chrome] > div:has([data-text-variant]):before {
         order: 2;
         margin: 0 !important;
         padding: 0 0 0 var(--space-12) !important;
+        text-align: end !important;
     }
-    :not(.platform-osx) div[class^="base__"] > div[class^="bar_"] > div[class^="title_"]:after {
+    div[data-window-chrome] > div:has([data-text-variant]):after {
         order: 3;
         margin: 0 !important;
     }
@@ -299,15 +267,15 @@
 
   /* Right part */
     /* ----- Inbox button ----- */
-    :not(.platform-osx) div[class^="base__"] > div[class^="bar_"] div[class^="iconWrapper_"]:has(div[class^="pulse_"]) div[role="button"]:after {
+    div[data-window-chrome] div[class^="iconWrapper_"]:has(div[class^="pulse_"]) div[role="button"]:after {
         --W10ITB-icon-mask: url("https://kiki79250coc.github.io/BetterDiscordAddons/Themes/Win10ishTitlebar/SVG/W10ITB-Icon-Inbox.svg");
     }
 
     /* TODO : Update these two rules
-    :not(.platform-osx) :is(div[class^="base__"], div#app-mount) > div[class^="bar_"] circle {
+    :is(div[class*="systemBar_"], div[data-window-chrome]) circle {
         display: none;
     }
-    :not(.platform-osx) :is(div[class^="base__"], div#app-mount) > div[class^="bar_"] [class*="clickable_"] [class*="badge_"] {
+    :is(div[class*="systemBar_"], div[data-window-chrome]) [class*="clickable_"] [class*="badge_"] {
         bottom: 8px;
         right: 16px;
         height: 6px;
@@ -316,12 +284,12 @@
     } */
 
     /* ----- Help button ----- */
-    :not(.platform-osx) div[class^="base__"] > div[class^="bar_"] a div[role="button"]:after {
+    div[data-window-chrome] a div[role="button"]:after {
         --W10ITB-icon-mask: url("https://kiki79250coc.github.io/BetterDiscordAddons/Themes/Win10ishTitlebar/SVG/W10ITB-Icon-Help.svg");
     }
 
     /* ----- Update button ----- */
-    :not(.platform-osx) div[class^="base__"] > div[class^="bar_"] div[role="button"]:has(path[fill="var(--green-360)"]):after {
+    div[data-window-chrome] div[role="button"]:has(path[fill="var(--green-360)"]):after {
         --W10ITB-icon-mask: url("https://kiki79250coc.github.io/BetterDiscordAddons/Themes/Win10ishTitlebar/SVG/W10ITB-Icon-Update.svg");
     }
 
@@ -329,7 +297,7 @@
 
     /* ---- Vencord's DevTools button ---- */
 
-    :not(.platform-osx) div[class^="base__"] > div[class^="bar_"] div[role="button"][aria-label="DevTools"]:after {
+    div[data-window-chrome] div[role="button"][aria-label="DevTools"]:after {
         --W10ITB-icon-mask: url("https://cdn.discordapp.com/attachments/618851288825856010/1544269138086592512/W10ITB-Icon-ThirdParty-Vencord-DevTools.svg?ex=6a97e435&is=6a9692b5&hm=2abbaa333962fa25dddc11dfde21252e9ed5fed0b13b025eb7f878a59139e9bd&");
     }
 
@@ -377,7 +345,7 @@
 
     /* ----- "PasscodeLock" 3rd-Party plugin ----- */
 
-    :not(.platform-osx) div[class^="base__"] > div[class^="bar_"]  div[role="button"]:has(path[d^="M19,10h-1V7.69c0-3.16-2.57-5.72-5.72-5"]):after {
+    div[data-window-chrome] div[role="button"]:has(path[d^="M19,10h-1V7.69c0-3.16-2.57-5.7"]):after {
         --W10ITB-icon-mask: url("https://kiki79250coc.github.io/BetterDiscordAddons/Themes/Win10ishTitlebar/SVG/W10ITB-Icon-ThirdParty-PasscodeLock.svg");
     }
 
