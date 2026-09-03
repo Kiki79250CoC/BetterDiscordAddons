@@ -10,7 +10,7 @@
 /* Default Root */
 
 :root {
-    --W10ITB-ThemeRealVersion: "1.4.520";
+    --W10ITB-ThemeRealVersion: "1.4.530";
 
     --custom-app-top-bar-height: calc(18px + var(--space-sm));
     --titleFontWithFallback: var(--titleFont), "gg sans", sans-serif;
@@ -65,7 +65,8 @@
     }
 
     /* ----- General ----- */
-    :is(div[class*="systemBar_"], div[data-window-chrome]) {
+    div#app-mount > div:nth-of-type(2),
+    div[data-window-chrome] {
         background: var(--titleBarColor);
         gap: 0px;
         padding-inline-end: 0;
@@ -75,22 +76,26 @@
         grid-template-columns: auto 1fr auto;
     }
 
-    :is(div[class*="systemBar_"], div[data-window-chrome]) * {
+    div#app-mount > div:nth-of-type(2) div,
+    div[data-window-chrome] div {
         gap: 0;
     }
 
     /* ----- General - Buttons ----- */
-    :is(div[class*="systemBar_"], div[data-window-chrome]) div[role="button"] {
+    div#app-mount > div:nth-of-type(2) div[role="button"],
+    div[data-window-chrome] div[role="button"] {
         width: 46px !important;
         height: var(--custom-app-top-bar-height) !important;
         margin: 0 !important;
         padding: 0 !important;
         border-radius: 0 !important;
     }
-    div[data-window-chrome] div[role="button"]:not(div[class^="winButton_"]) > * {
+    div[data-window-chrome] > div:first-child div[role="button"] > svg,
+    div[data-window-chrome] > div:last-child :not(:last-child) div[role="button"] > svg {
         display:none;
     }
-    div[data-window-chrome] div[role="button"]:not(div[class^="winButton_"]):after {
+    div[data-window-chrome] > div:first-child div[role="button"]:after,
+    div[data-window-chrome] > div:last-child :not(:last-child) div[role="button"]:after {
         content: "";
         width: 16px;
         height: 16px;
@@ -107,28 +112,37 @@
         mask-position: center;
     }
 
-    :is(div[class*="systemBar_"], div[data-window-chrome]) div[role="button"]:hover {
+    div#app-mount > div:nth-of-type(2) div[role="button"]:hover,
+    div[data-window-chrome] div[role="button"]:hover {
         background-color: var(--interactive-background-hover);
     }
-    :is(div[class*="systemBar_"], div[data-window-chrome]) div[role="button"]:is([aria-expanded="true"], :active) {
+    div#app-mount > div:nth-of-type(2) div[role="button"][aria-expanded="true"],
+    div#app-mount > div:nth-of-type(2) div[role="button"]:active,
+    div[data-window-chrome] div[role="button"][aria-expanded="true"],
+    div[data-window-chrome] div[role="button"]:active {
         background-color: var(--interactive-background-selected);
     }
 
-    div[data-window-chrome] div[class*="disabled_"] {
+    div[data-window-chrome] div[aria-disabled="true"] {
         opacity: 0.5 !important;
         pointer-events: none !important;
     }
 
     /* ----- General - System buttons ----- */
-    :is(div[class*="systemBar_"], div[data-window-chrome]) :is(rect, polygon) {
+    div#app-mount > div:nth-of-type(2) rect
+    div#app-mount > div:nth-of-type(2) polygon,
+    div[data-window-chrome] rect,
+    div[data-window-chrome] polygon {
         color: var(--CaptionBarItemColor) !important;
     }
 
       /* Close button highlight */
-    div[data-window-chrome] > div:last-child > div:last-child > div:last-child:hover {
+    div#app-mount > div:nth-of-type(2) div:last-child div:last-child div:last-child:hover,
+    div[data-window-chrome] > div:last-child div:last-child div:last-child:hover {
         background-color: #c42b1c !important;
     }
-    div[data-window-chrome] > div:last-child > div:last-child > div:last-child:active {
+    div#app-mount > div:nth-of-type(2) div:last-child div:last-child div:last-child:active,
+    div[data-window-chrome] > div:last-child div:last-child div:last-child:active {
         background-color: #b22a1c !important;
     }
 
@@ -140,9 +154,9 @@
     }
 
     /* ----- General - Show simple titlebar when no connect screen is displayed ----- */
-    div#app-mount:has(a[href="https://discordstatus.com"]) > [class*="systemBar_"] {
+    /* div#app-mount:has(a[href="https://discordstatus.com"]) > div:nth-of-type(2) {
         display: flex !important;
-    }
+    } */
 
 
   /* Structure */
@@ -153,14 +167,14 @@
     }
 
     /* ----- Middle - "Title" ----- */
-    div[data-window-chrome] > div:has([data-text-variant]) > * {
+    div[data-window-chrome] > div:nth-child(2) > * {
         padding: 0 0 0 var(--space-12) !important;
         gap: 6px !important;
         display: inline-grid;
         grid-template-columns: auto 1fr;
         max-width: none;
     }
-    div[data-window-chrome] > div:has([data-text-variant]) {
+    div[data-window-chrome] > div:nth-child(2) {
         position: relative;
         justify-content: left;
         
@@ -173,11 +187,11 @@
 
   /* Left part */
     /* ----- Back/Forward Buttons ----- */
-    div[data-window-chrome] > div:first-child > div > div:first-child:after {
+    div[data-window-chrome] > div:first-child div:first-child:after {
         --W10ITB-icon-mask: url("https://kiki79250coc.github.io/BetterDiscordAddons/Themes/Win10ishTitlebar/SVG/W10ITB-Icon-Back.svg");
         height: 15px !important; /* TEMP - Fix rendering to new method */
     }
-    div[data-window-chrome] > div:first-child > div > div:last-child:after {
+    div[data-window-chrome] > div:first-child div:last-child:after {
         --W10ITB-icon-mask: url("https://kiki79250coc.github.io/BetterDiscordAddons/Themes/Win10ishTitlebar/SVG/W10ITB-Icon-Forward.svg");
         height: 15px !important; /* TEMP - Fix rendering to new method */
     }
@@ -185,7 +199,8 @@
 
   /* Middle part */
     /* ----- Icon ----- */
-    div[data-window-chrome] div:has([data-text-variant]) > :is(div[class*="guildIcon_"], svg) {
+    div[data-window-chrome] > div:nth-child(2) div[style],
+    div[data-window-chrome] > div:nth-child(2) svg {
         background: var(--CaptionBarItemColor) !important;
 
         --W10ITB-icon-mask: url("https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/66e278299a53f5bf88615e90_Symbol.svg");
@@ -204,7 +219,7 @@
         width: 16px !important;
         border-radius: 0px !important;
     }
-    div[data-window-chrome] > div:has([data-text-variant]) svg path {
+    div[data-window-chrome] > div:nth-child(2) path {
         display: none !important;
     }
 
@@ -238,14 +253,14 @@
     } */
 
     /* ----- Text - Right ----- */
-    div[data-window-chrome] > div:has([data-text-variant]) {
+    div[data-window-chrome] > div:nth-child(2) {
         --W10ITB-INT-LineHeight: 1.4;
         background: none !important;
         white-space: nowrap;
     }
-    div[data-window-chrome] > div:has([data-text-variant]),
-    div[data-window-chrome] > div:has([data-text-variant]):before,
-    div[data-window-chrome] > div:has([data-text-variant]):after{
+    div[data-window-chrome] > div:nth-child(2),
+    div[data-window-chrome] > div:nth-child(2):before,
+    div[data-window-chrome] > div:nth-child(2):after{
         font-family: var(--titleFontWithFallback) !important;
         font-size: var(--titleSize) !important;
         font-weight: var(--titleBoldness) !important;
@@ -253,13 +268,13 @@
         line-height: var(--W10ITB-INT-LineHeight) !important;
         max-height: calc(var(--titleSize) * var(--W10ITB-INT-LineHeight)) !important;
     }
-    div[data-window-chrome] > div:has([data-text-variant]):before {
+    div[data-window-chrome] > div:nth-child(2):before {
         order: 2;
         margin: 0 !important;
         padding: 0 0 0 var(--space-12) !important;
         text-align: end !important;
     }
-    div[data-window-chrome] > div:has([data-text-variant]):after {
+    div[data-window-chrome] > div:nth-child(2):after {
         order: 3;
         margin: 0 !important;
     }
@@ -267,15 +282,17 @@
 
   /* Right part */
     /* ----- Inbox button ----- */
-    div[data-window-chrome] div[class^="iconWrapper_"]:has(div[class^="pulse_"]) div[role="button"]:after {
+    div[data-window-chrome] div[role="button"][aria-expanded]:after {
         --W10ITB-icon-mask: url("https://kiki79250coc.github.io/BetterDiscordAddons/Themes/Win10ishTitlebar/SVG/W10ITB-Icon-Inbox.svg");
     }
 
     /* TODO : Update these two rules
-    :is(div[class*="systemBar_"], div[data-window-chrome]) circle {
+    div#app-mount > div:nth-of-type(2) circle,
+    div[data-window-chrome] circle {
         display: none;
     }
-    :is(div[class*="systemBar_"], div[data-window-chrome]) [class*="clickable_"] [class*="badge_"] {
+    div#app-mount > div:nth-of-type(2) [class*="clickable_"] [class*="badge_"],
+    div[data-window-chrome] [class*="clickable_"] [class*="badge_"] {
         bottom: 8px;
         right: 16px;
         height: 6px;
@@ -305,7 +322,7 @@
     /* ----- "PingNotification" 3rd-Party plugin ----- */
 
     .pn-hist-button {
-        width: 46px !important;
+        width: 46px;
         height: var(--custom-app-top-bar-height) !important;
         margin: 0;
         padding: 0;
@@ -313,7 +330,7 @@
 
         background: transparent;
     }
-    .pn-hist-button:before {
+    .pn-hist-button:after	{
         content: "";
         display: block;
         height: 100%;
@@ -335,7 +352,7 @@
     .pn-hist-button:hover {
         background: var(--interactive-background-hover);
     }
-    .pn-hist-button:is(:active, [aria-expanded="true"]) {
+    .pn-hist-button[aria-controls] {
         background: var(--interactive-background-selected);
     }
     .pn-hist-button > svg {
@@ -367,12 +384,12 @@
     .sr-toolbar-button:active {
         background: var(--interactive-background-selected);
     }
-    .sr-toolbar-button > svg {
+    .sr-toolbar-button svg {
         stroke: var(--CaptionBarItemColor);
         width: 14px;
         height: 14px;
     }
-    .sr-toolbar-button > svg circle {
+    .sr-toolbar-button circle {
         display: inherit !important;
     }
 

@@ -1,6 +1,9 @@
 # Windows 10/11-ish Titlebar - Changelog
 <sup>*Times are expressed in CET/CEST (UTC+1/+2) time.*</sup><br><sup>*[< Back to README](./)*</sup>
 
+### 1.4.530 <sup><sub>*(03 September 2026)*</sub></sup>
+- Continued optimization efforts.
+
 ### 1.4.520 <sup><sub>*(02 September 2026)*</sub></sup>
 - Continued optimization efforts.
 - Fixed some issues with additional text not being aligned properly to the right.
