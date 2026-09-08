@@ -10,7 +10,7 @@
 /* Default Root */
 
 :root {
-    --W10ITB-ThemeRealVersion: "1.4.530";
+    --W10ITB-ThemeRealVersion: "1.4.535";
 
     --custom-app-top-bar-height: calc(18px + var(--space-sm));
     --titleFontWithFallback: var(--titleFont), "gg sans", sans-serif;
@@ -90,12 +90,10 @@
         padding: 0 !important;
         border-radius: 0 !important;
     }
-    div[data-window-chrome] > div:first-child div[role="button"] > svg,
-    div[data-window-chrome] > div:last-child :not(:last-child) div[role="button"] > svg {
+    div[data-window-chrome] div[role="button"][aria-disabled] > svg {
         display:none;
     }
-    div[data-window-chrome] > div:first-child div[role="button"]:after,
-    div[data-window-chrome] > div:last-child :not(:last-child) div[role="button"]:after {
+    div[data-window-chrome] div[role="button"][aria-disabled]:after {
         content: "";
         width: 16px;
         height: 16px;
@@ -129,7 +127,7 @@
     }
 
     /* ----- General - System buttons ----- */
-    div#app-mount > div:nth-of-type(2) rect
+    div#app-mount > div:nth-of-type(2) rect,
     div#app-mount > div:nth-of-type(2) polygon,
     div[data-window-chrome] rect,
     div[data-window-chrome] polygon {
@@ -137,12 +135,12 @@
     }
 
       /* Close button highlight */
-    div#app-mount > div:nth-of-type(2) div:last-child div:last-child div:last-child:hover,
-    div[data-window-chrome] > div:last-child div:last-child div:last-child:hover {
+    div#app-mount > div:nth-of-type(2) div[role="button"][tabindex="-1"]:last-of-type:hover,
+    div[data-window-chrome] > div:last-child div[role="button"][tabindex="-1"]:last-of-type:hover {
         background-color: #c42b1c !important;
     }
-    div#app-mount > div:nth-of-type(2) div:last-child div:last-child div:last-child:active,
-    div[data-window-chrome] > div:last-child div:last-child div:last-child:active {
+    div#app-mount > div:nth-of-type(2) div[role="button"][tabindex="-1"]:last-of-type:active,
+    div[data-window-chrome] > div:last-child div[role="button"][tabindex="-1"]:last-of-type:active {
         background-color: #b22a1c !important;
     }
 
