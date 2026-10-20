@@ -1,6 +1,11 @@
 # Windows 10/11-ish Titlebar - Changelog
 <sup>*Times are expressed in CET/CEST (UTC+1/+2) time.*</sup><br><sup>*[< Back to README](./)*</sup>
 
+### 1.4.550 <sup><sub>*(20 October 2026)*</sub></sup>
+- Fixed theme (Discord inverted two elements — Leading and Title — in their HTML).
+- Icons are now located in an external file (Core1.css).
+- Fixed theme on Discord Web Client.
+
 ### 1.4.535 <sup><sub>*(08 September 2026)*</sub></sup>
 - Continued optimization efforts.
 - Fixed a small bug with a class.

@@ -7,10 +7,15 @@
 
 */
 
-/* Default Root */
+/* ----------| Import Icons |---------- */
+
+@import url("https://kiki79250coc.github.io/BetterDiscordAddons/Themes/Win10ishTitlebar/Theme/ThemeLoader_v1.0.2/Core1.css");
+
+
+/* ----------| Default Root |---------- */
 
 :root {
-    --W10ITB-ThemeRealVersion: "1.4.535";
+    --W10ITB-ThemeRealVersion: "1.4.550";
 
     --custom-app-top-bar-height: calc(18px + var(--space-sm));
     --titleFontWithFallback: var(--titleFont), "gg sans", sans-serif;
@@ -65,7 +70,7 @@
     }
 
     /* ----- General ----- */
-    div#app-mount > div:nth-of-type(2),
+    html:not(.platform-web) div#app-mount > div[style][tabindex]:first-of-type + div,
     div[data-window-chrome] {
         background: var(--titleBarColor);
         gap: 0px;
@@ -76,13 +81,25 @@
         grid-template-columns: auto 1fr auto;
     }
 
-    div#app-mount > div:nth-of-type(2) div,
+    html:not(.platform-web) div#app-mount > div[style][tabindex]:first-of-type + div div,
     div[data-window-chrome] div {
         gap: 0;
     }
 
+    /* ----- General - Item order ----- */
+
+    div[data-window-chrome] > div:nth-of-type(2) { /* Left part */
+        order: 1 !important;
+    }
+    div[data-window-chrome] > div:nth-of-type(1) { /* Middle part */
+        order: 2 !important;
+    }
+    div[data-window-chrome] > div:nth-of-type(3) { /* Right part */
+        order: 3 !important;
+    }
+
     /* ----- General - Buttons ----- */
-    div#app-mount > div:nth-of-type(2) div[role="button"],
+    html:not(.platform-web) div#app-mount > div[style][tabindex]:first-of-type + div div[role="button"],
     div[data-window-chrome] div[role="button"] {
         width: 46px !important;
         height: var(--custom-app-top-bar-height) !important;
@@ -99,23 +116,23 @@
         height: 16px;
         background:var(--CaptionBarItemColor);
 
-        -webkit-mask-image: var(--W10ITB-icon-mask);
+        -webkit-mask-image: var(--W10ITB-Icon-Mask);
         -webkit-mask-repeat: no-repeat;
         -webkit-mask-size: contain;
         -webkit-mask-position: center;
 
-        mask-image: var(--W10ITB-icon-mask);
+        mask-image: var(--W10ITB-Icon-Mask);
         mask-repeat: no-repeat;
         mask-size: contain;
         mask-position: center;
     }
 
-    div#app-mount > div:nth-of-type(2) div[role="button"]:hover,
+    html:not(.platform-web) div#app-mount > div[style][tabindex]:first-of-type + div div[role="button"]:hover,
     div[data-window-chrome] div[role="button"]:hover {
         background-color: var(--interactive-background-hover);
     }
-    div#app-mount > div:nth-of-type(2) div[role="button"][aria-expanded="true"],
-    div#app-mount > div:nth-of-type(2) div[role="button"]:active,
+    html:not(.platform-web) div#app-mount > div[style][tabindex]:first-of-type + div div[role="button"][aria-expanded="true"],
+    html:not(.platform-web) div#app-mount > div[style][tabindex]:first-of-type + div div[role="button"]:active,
     div[data-window-chrome] div[role="button"][aria-expanded="true"],
     div[data-window-chrome] div[role="button"]:active {
         background-color: var(--interactive-background-selected);
@@ -127,25 +144,27 @@
     }
 
     /* ----- General - System buttons ----- */
-    div#app-mount > div:nth-of-type(2) rect,
-    div#app-mount > div:nth-of-type(2) polygon,
+    html:not(.platform-web) div#app-mount > div[style][tabindex]:first-of-type + div rect,
+    html:not(.platform-web) div#app-mount > div[style][tabindex]:first-of-type + div polygon,
     div[data-window-chrome] rect,
     div[data-window-chrome] polygon {
         color: var(--CaptionBarItemColor) !important;
     }
 
+
+
       /* Close button highlight */
-    div#app-mount > div:nth-of-type(2) div[role="button"][tabindex="-1"]:last-of-type:hover,
+    html:not(.platform-web) div#app-mount > div[style][tabindex]:first-of-type + div div[role="button"][tabindex="-1"]:last-of-type:hover,
     div[data-window-chrome] > div:last-child div[role="button"][tabindex="-1"]:last-of-type:hover {
         background-color: #c42b1c !important;
     }
-    div#app-mount > div:nth-of-type(2) div[role="button"][tabindex="-1"]:last-of-type:active,
+    html:not(.platform-web) div#app-mount > div[style][tabindex]:first-of-type + div div[role="button"][tabindex="-1"]:last-of-type:active,
     div[data-window-chrome] > div:last-child div[role="button"][tabindex="-1"]:last-of-type:active {
         background-color: #b22a1c !important;
     }
 
     /* ----- General - Buttons' separator ----- */
-    div[data-window-chrome] > div:last-child > div:last-child:before {
+    div[data-window-chrome] > div:nth-of-type(3) > div:last-child:before {
         border-left-color: var(--CaptionBarItemColor);
         opacity: 0.25;
         margin-inline: var(--space-12);
@@ -159,23 +178,22 @@
 
   /* Structure */
     /* ----- Left - "Leading" ----- */
-    div[data-window-chrome] > div:first-child:before,
-    div[data-window-chrome] > div:first-child:after {
+    div[data-window-chrome] > div:nth-child(2):before,
+    div[data-window-chrome] > div:nth-child(2):after {
         display: none !important;
     }
 
     /* ----- Middle - "Title" ----- */
-    div[data-window-chrome] > div:nth-child(2) > * {
+    div[data-window-chrome] > div:nth-child(1) > * {
         padding: 0 0 0 var(--space-12) !important;
         gap: 6px !important;
         display: inline-grid;
         grid-template-columns: auto 1fr;
         max-width: none;
     }
-    div[data-window-chrome] > div:nth-child(2) {
+    div[data-window-chrome] > div:nth-child(1) {
         position: relative;
         justify-content: left;
-        
         border: none !important;
         padding-right: var(--space-12);
         display: inline-grid;
@@ -185,30 +203,28 @@
 
   /* Left part */
     /* ----- Back/Forward Buttons ----- */
-    div[data-window-chrome] > div:first-child div:first-child:after {
-        --W10ITB-icon-mask: url("https://kiki79250coc.github.io/BetterDiscordAddons/Themes/Win10ishTitlebar/SVG/W10ITB-Icon-Back.svg");
+    div[data-window-chrome] > div:nth-child(2) div:first-child:after {
+        --W10ITB-Icon-Mask: var(--W10ITB-Icon-Back);
         height: 15px !important; /* TEMP - Fix rendering to new method */
     }
-    div[data-window-chrome] > div:first-child div:last-child:after {
-        --W10ITB-icon-mask: url("https://kiki79250coc.github.io/BetterDiscordAddons/Themes/Win10ishTitlebar/SVG/W10ITB-Icon-Forward.svg");
+    div[data-window-chrome] > div:nth-child(2) div:last-child:after {
+        --W10ITB-Icon-Mask: var(--W10ITB-Icon-Forward);
         height: 15px !important; /* TEMP - Fix rendering to new method */
     }
 
 
   /* Middle part */
     /* ----- Icon ----- */
-    div[data-window-chrome] > div:nth-child(2) div[style],
-    div[data-window-chrome] > div:nth-child(2) svg {
+    div[data-window-chrome] > div:nth-child(1) div[style],
+    div[data-window-chrome] > div:nth-child(1) svg {
         background: var(--CaptionBarItemColor) !important;
 
-        --W10ITB-icon-mask: url("https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/66e278299a53f5bf88615e90_Symbol.svg");
-
-        -webkit-mask-image: var(--W10ITB-icon-mask);
+        -webkit-mask-image: var(--W10ITB-Icon-Discord);
         -webkit-mask-repeat: no-repeat;
         -webkit-mask-size: contain;
         -webkit-mask-position: center;
 
-        mask-image: var(--W10ITB-icon-mask);
+        mask-image: var(--W10ITB-Icon-Discord);
         mask-repeat: no-repeat;
         mask-size: contain;
         mask-position: center;
@@ -217,7 +233,7 @@
         width: 16px !important;
         border-radius: 0px !important;
     }
-    div[data-window-chrome] > div:nth-child(2) path {
+    div[data-window-chrome] > div:nth-child(1) path {
         display: none !important;
     }
 
@@ -251,14 +267,14 @@
     } */
 
     /* ----- Text - Right ----- */
-    div[data-window-chrome] > div:nth-child(2) {
+    div[data-window-chrome] > div:nth-child(1) {
         --W10ITB-INT-LineHeight: 1.4;
         background: none !important;
         white-space: nowrap;
     }
-    div[data-window-chrome] > div:nth-child(2),
-    div[data-window-chrome] > div:nth-child(2):before,
-    div[data-window-chrome] > div:nth-child(2):after{
+    div[data-window-chrome] > div:nth-child(1),
+    div[data-window-chrome] > div:nth-child(1):before,
+    div[data-window-chrome] > div:nth-child(1):after{
         font-family: var(--titleFontWithFallback) !important;
         font-size: var(--titleSize) !important;
         font-weight: var(--titleBoldness) !important;
@@ -266,13 +282,13 @@
         line-height: var(--W10ITB-INT-LineHeight) !important;
         max-height: calc(var(--titleSize) * var(--W10ITB-INT-LineHeight)) !important;
     }
-    div[data-window-chrome] > div:nth-child(2):before {
+    div[data-window-chrome] > div:nth-child(1):before {
         order: 2;
         margin: 0 !important;
         padding: 0 0 0 var(--space-12) !important;
         text-align: end !important;
     }
-    div[data-window-chrome] > div:nth-child(2):after {
+    div[data-window-chrome] > div:nth-child(1):after {
         order: 3;
         margin: 0 !important;
     }
@@ -281,15 +297,15 @@
   /* Right part */
     /* ----- Inbox button ----- */
     div[data-window-chrome] div[role="button"][aria-expanded]:after {
-        --W10ITB-icon-mask: url("https://kiki79250coc.github.io/BetterDiscordAddons/Themes/Win10ishTitlebar/SVG/W10ITB-Icon-Inbox.svg");
+        --W10ITB-Icon-Mask: var(--W10ITB-Icon-Inbox);
     }
 
     /* TODO : Update these two rules
-    div#app-mount > div:nth-of-type(2) circle,
+    html:not(.platform-web) div#app-mount > div[style][tabindex]:first-of-type + div circle,
     div[data-window-chrome] circle {
         display: none;
     }
-    div#app-mount > div:nth-of-type(2) [class*="clickable_"] [class*="badge_"],
+    html:not(.platform-web) div#app-mount > div[style][tabindex]:first-of-type + div [class*="clickable_"] [class*="badge_"],
     div[data-window-chrome] [class*="clickable_"] [class*="badge_"] {
         bottom: 8px;
         right: 16px;
@@ -300,12 +316,12 @@
 
     /* ----- Help button ----- */
     div[data-window-chrome] a div[role="button"]:after {
-        --W10ITB-icon-mask: url("https://kiki79250coc.github.io/BetterDiscordAddons/Themes/Win10ishTitlebar/SVG/W10ITB-Icon-Help.svg");
+        --W10ITB-Icon-Mask: var(--W10ITB-Icon-Help);
     }
 
     /* ----- Update button ----- */
     div[data-window-chrome] div[role="button"]:has(path[fill="var(--green-360)"]):after {
-        --W10ITB-icon-mask: url("https://kiki79250coc.github.io/BetterDiscordAddons/Themes/Win10ishTitlebar/SVG/W10ITB-Icon-Update.svg");
+        --W10ITB-Icon-Mask: var(--W10ITB-Icon-Update);
     }
 
 /* ---------- */
@@ -313,7 +329,7 @@
     /* ---- Vencord's DevTools button ---- */
 
     div[data-window-chrome] div[role="button"][aria-label="DevTools"]:after {
-        --W10ITB-icon-mask: url("https://cdn.discordapp.com/attachments/618851288825856010/1544269138086592512/W10ITB-Icon-ThirdParty-Vencord-DevTools.svg?ex=6a97e435&is=6a9692b5&hm=2abbaa333962fa25dddc11dfde21252e9ed5fed0b13b025eb7f878a59139e9bd&");
+        --W10ITB-Icon-Mask: var(--W10ITB-Icon-3P-VencordDevTools);
     }
 
 
@@ -335,7 +351,7 @@
 
         background: var(--CaptionBarItemColor);
 
-        --W10ITB-PNHist-IconMask: url("https://kiki79250coc.github.io/BetterDiscordAddons/Themes/Win10ishTitlebar/SVG/W10ITB-Icon-ThirdParty-PingNotification.svg");
+        --W10ITB-PNHist-IconMask: var(--W10ITB-Icon-3P-PingNotification);
     
         -webkit-mask-image: var(--W10ITB-PNHist-IconMask);
         -webkit-mask-repeat: no-repeat;
@@ -361,7 +377,7 @@
     /* ----- "PasscodeLock" 3rd-Party plugin ----- */
 
     div[data-window-chrome] div[role="button"]:has(path[d^="M19,10h-1V7.69c0-3.16-2.57-5.7"]):after {
-        --W10ITB-icon-mask: url("https://kiki79250coc.github.io/BetterDiscordAddons/Themes/Win10ishTitlebar/SVG/W10ITB-Icon-ThirdParty-PasscodeLock.svg");
+        --W10ITB-Icon-Mask: var(--W10ITB-Icon-3P-PasscodeLock);
     }
 
     /* ---- "CSS Snippet Repo" 3rd-Party plugin ---- */
